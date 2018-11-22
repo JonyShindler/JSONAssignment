@@ -1,0 +1,19 @@
+{"id":"s113867","tasks":["/task/5447","/task/3652","/task/2607","/task/7286","/task/6915","/task/8931","/task/3215","/task/7943","/task/2867","/task/8060"]}
+{"instruction":"add","parameters":[9732,5920],"response URL":"/answer/5447"}
+15652
+{"instruction":"multiply","parameters":[9461,5089],"response URL":"/answer/3652"}
+48147029
+{"instruction":"concat","parameters":["1461","8264"],"response URL":"/answer/2607"}
+14618264
+{"instruction":"add","parameters":[795,"5975"],"response URL":"/answer/7286"}
+6770
+{"instruction":"add","parameters":["8480",2020],"response URL":"/answer/6915"}
+10500
+{"instruction":"multiply","parameters":["589","4045"],"response URL":"/answer/8931"}
+2382505
+{"instruction":"concat","parameters":[6960,"6475"],"response URL":"/answer/3215"}
+69606475
+{"instruction":"concat","parameters":["8388",4496],"response URL":"/answer/7943"}
+83884496
+{"instruction":"subtract","parameters":[4098,3847],"response URL":"/answer/2867"}
+"add up the two numbers 124 and 9673"

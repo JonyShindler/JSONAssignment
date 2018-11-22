@@ -9,17 +9,16 @@ import java.net.URL;
 
 public class PostRequester {
 
-    public String sendPostRequest(String urlParams) throws IOException {
+    public String sendPostRequest(String url, String urlParameters) throws IOException {
 
-        String url = "http://i2j.openode.io/";
-        URL obj = new URL(url+urlParams);
+        String serverUrl = "http://i2j.openode.io";
+        String finalUrl = serverUrl+url;
+        URL obj = new URL(finalUrl);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         //add request header
         con.setRequestMethod("POST");
         con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-
-        String urlParameters = "15652";
 
         // Send post request
         con.setDoOutput(true);
@@ -29,9 +28,7 @@ public class PostRequester {
         wr.close();
 
         int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        System.out.println("Sending 'POST' request to URL : " + url + " with parameters " + urlParameters + " returned response code " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -44,7 +41,7 @@ public class PostRequester {
         in.close();
 
         //print result
-        System.out.println(response.toString());
+        // System.out.println("Post request response " + response.toString());
         return response.toString();
     }
 }
