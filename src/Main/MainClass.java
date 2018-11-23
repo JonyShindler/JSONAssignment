@@ -15,7 +15,8 @@ import java.io.PrintWriter;
 public class MainClass {
 
     public static void main(String[] args) throws IOException {
-        String filePath = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
+//        String filePath = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
+        String filePath = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
         PrintWriter pw = new PrintWriter(filePath);
         pw.close();
 
