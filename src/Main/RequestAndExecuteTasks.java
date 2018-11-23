@@ -3,6 +3,7 @@ package Main;
 import HTTP.GetRequester;
 import HTTP.PostRequester;
 import JSONParser.BasicParser;
+import Operations.OperationClass;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -12,88 +13,52 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//TODo this class should just delegate to other public method classes to tell us what to do.
 public class RequestAndExecuteTasks {
 private FileWriter fileWriter;
 
 //TODO this is bad practice!!!
     public RequestAndExecuteTasks() {
         try {
-            fileWriter = initiliaseFileWriter();
+            fileWriter = initialiseFileWriter();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    // TODO Wrap this in try catch?
+    // TODO Wrap send request in exception and then pass that on if it happens?
     //This requests and returns the list of tasks we need.
     public JsonObject sendRequestToRetrieveListOfTasks() throws IOException {
         String taskURLS = new GetRequester().sendGetRequest("/student?id=s113867");
         fileWriter.write(taskURLS + "\n");
 
-        //TODO parse it here.
         JsonObject jsonObject = new BasicParser().parse(taskURLS);
         System.out.println();
 
+        //Note this is the entire response, it has not filtered out the tasks yet.
         return jsonObject;
     }
 
 
     public void processTasks(JsonObject tasksJsonResponse) throws IOException {
-        // Extract the tasks from the string.
-        JsonArray tasksArray = tasksJsonResponse.get("tasks").getAsJsonArray();
+        // Extract the taskURLS from the JSONArray.
+        JsonArray taskURLArray = tasksJsonResponse.get("tasks").getAsJsonArray();
 
-        for (JsonElement element : tasksArray) {
+        // Loop through all URLS.
+        for (JsonElement element : taskURLArray) {
             try {
-                String taskURL = element.getAsString();
-                // System.out.println(taskURL);
-                String task = new GetRequester().sendGetRequest(taskURL);
-                fileWriter.write(task + "\n");
-                //parse each one.
+                //TODO again maybe wrap this individual bit.
+                String task = retrieveIndividualTaskDetails(element);
 
-                JsonObject taskJson = new JsonParser().parse(task).getAsJsonObject();
-                // extract the URL and the task.
-                String taskInstruction = taskJson.get("instruction").getAsString();
-                // System.out.println(taskInstruction);
+                //TODO then wrap the unparsing bit?
+                JsonObject individualTask = new JsonParser().parse(task).getAsJsonObject();
+                String taskInstruction = individualTask.get("instruction").getAsString();
+                JsonArray parameters = individualTask.getAsJsonArray("parameters");
+                String postUrl = individualTask.get("response URL").getAsString();
 
-                JsonArray parameters = taskJson.getAsJsonArray("parameters");
-                // System.out.println(parameters.toString());
-
-                String postUrl = taskJson.get("response URL").getAsString();
-                // System.out.println(postUrl);
-
-                //Figure out what operation to take.
-
-                String answerToPost;
-                int parameter1 = Integer.parseInt(parameters.get(0).getAsString());
-                int parameter2 = Integer.parseInt(parameters.get(1).getAsString());
-
-                switch (taskInstruction)
-                {
-                    case "add":
-                    {
-                        //extract the parameters.
-                        int answer = parameter1 + parameter2;
-                        answerToPost = String.valueOf(answer);
-                        break;
-                    }
-                    case "multiply":
-                    {
-                        int answer = parameter1 * parameter2;
-                        answerToPost = String.valueOf(answer);
-                        break;
-                    }
-                    case "concat":
-                        answerToPost = String.valueOf(parameter1) + String.valueOf(parameter2);
-                        break;
-                    default:
-                        throw new IllegalStateException("Not a valid operation \n");
-                }
-
-                new PostRequester().sendPostRequest(postUrl, answerToPost);
-                //TODO it specifically wants the response we sent back.
-                fileWriter.write(answerToPost + "\n");
-                System.out.println();
+                String answerToPost = new OperationClass().doOperation(taskInstruction, parameters);
+                sendTaskResponse(postUrl, answerToPost);
 
             } catch (IllegalStateException e) {
                 System.out.println(e.getMessage());
@@ -103,12 +68,28 @@ private FileWriter fileWriter;
             }
 //TODO write each JSON document and response we sent back to a file.
         }
+
+        //This is the final task so we can do this. otherwise we could add it in the finalize method?
         fileWriter.close();
 
     }
 
+    private void sendTaskResponse(String postUrl, String answerToPost) throws IOException {
+        new PostRequester().sendPostRequest(postUrl, answerToPost);
+        //TODO it specifically wants the response we sent back.
+        fileWriter.write(answerToPost + "\n");
+        System.out.println();
+    }
 
-    private static FileWriter initiliaseFileWriter() throws IOException {
+    private String retrieveIndividualTaskDetails(JsonElement element) throws IOException {
+        String taskURL = element.getAsString();
+        String task = new GetRequester().sendGetRequest(taskURL);
+        fileWriter.write(task + "\n");
+        return task;
+    }
+
+
+    private static FileWriter initialiseFileWriter() throws IOException {
         //        String filePath = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
         String filePath = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
         PrintWriter pw = new PrintWriter(filePath);
