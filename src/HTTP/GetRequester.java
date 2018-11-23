@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class GetRequester {
 
-    public String sendGetRequest(String urlParams, FileWriter fileWriter) throws IOException {
+    public String sendGetRequest(String urlParams) throws IOException {
 
         String url = "http://i2j.openode.io";
         url = url + urlParams;
