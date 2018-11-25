@@ -12,7 +12,6 @@ public class SecondParserTest {
         System.out.println("Input JSON is: " + json);
         Map<String,String> map = new SecondParser().parse(json);
         System.out.println("Map is: " + map.toString());
-
     }
 
     @Test
@@ -23,5 +22,16 @@ public class SecondParserTest {
         System.out.println("Map is: " + map.toString());
 
     }
+
+    @Test
+    public void testTaskURLResponse(){
+        String json = "{instruction\":\"concat\",\"parameters\":[6960,\"6475\"],\"response URL\":\"/answer/3215}";
+        System.out.println("Input JSON is: " + json);
+        Map<String,String> map = new SecondParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+
+    }
+
+
 
 }

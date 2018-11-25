@@ -20,8 +20,8 @@
       <file leaf-file-name="SecondParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="38">
+              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -29,8 +29,8 @@
       <file leaf-file-name="SecondParserTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/JSONParser/SecondParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="125">
+              <caret line="27" column="112" selection-start-line="27" selection-start-column="112" selection-end-line="27" selection-end-column="112" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -188,7 +188,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SecondParserTest.testArray">
+  <component name="RunManager" selected="JUnit.SecondParserTest.testTaskURLResponse">
     <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.MainClass" />
       <module name="JSONAssignment" />
@@ -203,7 +203,7 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="GSONParserTest.testThing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SecondParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JSONAssignment" />
       <extension name="coverage">
         <pattern>
@@ -214,9 +214,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="JSONParser" />
-      <option name="MAIN_CLASS_NAME" value="JSONParser.GSONParserTest" />
-      <option name="METHOD_NAME" value="testThing" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="JSONParser.SecondParserTest" />
+      <option name="METHOD_NAME" value="testArray" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -272,7 +272,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="SecondParserTest.testThing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SecondParserTest.testTaskURLResponse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JSONAssignment" />
       <extension name="coverage">
         <pattern>
@@ -284,7 +284,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="JSONParser" />
       <option name="MAIN_CLASS_NAME" value="JSONParser.SecondParserTest" />
-      <option name="METHOD_NAME" value="testThing" />
+      <option name="METHOD_NAME" value="testTaskURLResponse" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -335,18 +335,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainClass" />
-      <item itemvalue="JUnit.GSONParserTest.testThing" />
-      <item itemvalue="JUnit.SecondParserTest.testThing" />
       <item itemvalue="JUnit.SecondParserTest.testSuperBasicCase" />
       <item itemvalue="JUnit.SecondParserTest.testArray" />
+      <item itemvalue="JUnit.SecondParserTest" />
+      <item itemvalue="JUnit.SecondParserTest.testTaskURLResponse" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SecondParserTest.testArray" />
+        <item itemvalue="JUnit.SecondParserTest.testTaskURLResponse" />
         <item itemvalue="Application.MainClass" />
+        <item itemvalue="JUnit.SecondParserTest" />
+        <item itemvalue="JUnit.SecondParserTest.testArray" />
         <item itemvalue="JUnit.SecondParserTest.testSuperBasicCase" />
-        <item itemvalue="JUnit.SecondParserTest.testThing" />
-        <item itemvalue="JUnit.GSONParserTest.testThing" />
       </list>
     </recent_temporary>
   </component>
@@ -391,39 +391,53 @@
       <option name="project" value="LOCAL" />
       <updated>1543185972986</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added new test with array.Going to write my own string buffer based split method">
+      <created>1543186764162</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543186764162</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added array based parser">
+      <created>1543188205513</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1543188205513</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SecondParserTest_testThing - 2018.11.25 at 22h 35m 57s.xml">
-      <configuration name="SecondParserTest.testThing" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testThing - 2018.11.25 at 22h 42m 02s.xml">
-      <configuration name="SecondParserTest.testThing" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testThing - 2018.11.25 at 22h 44m 08s.xml">
-      <configuration name="SecondParserTest.testThing" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testThing - 2018.11.25 at 22h 49m 12s.xml">
-      <configuration name="SecondParserTest.testThing" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testSuperBasicCase - 2018.11.25 at 22h 49m 24s.xml">
-      <configuration name="SecondParserTest.testSuperBasicCase" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testSuperBasicCase - 2018.11.25 at 22h 49m 46s.xml">
-      <configuration name="SecondParserTest.testSuperBasicCase" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testSuperBasicCase - 2018.11.25 at 22h 49m 55s.xml">
-      <configuration name="SecondParserTest.testSuperBasicCase" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testSuperBasicCase - 2018.11.25 at 22h 52m 52s.xml">
-      <configuration name="SecondParserTest.testSuperBasicCase" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 22h 54m 20s.xml">
+    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 18m 23s.xml">
       <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 22h 57m 04s.xml">
+    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 18m 44s.xml">
       <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 21m 35s.xml">
+      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 22m 45s.xml">
+      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 22m 57s.xml">
+      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest - 2018.11.25 at 23h 23m 07s.xml">
+      <configuration name="SecondParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testTaskURLResponse - 2018.11.25 at 23h 27m 13s.xml">
+      <configuration name="SecondParserTest.testTaskURLResponse" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testTaskURLResponse - 2018.11.25 at 23h 27m 39s.xml">
+      <configuration name="SecondParserTest.testTaskURLResponse" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testTaskURLResponse - 2018.11.25 at 23h 28m 11s.xml">
+      <configuration name="SecondParserTest.testTaskURLResponse" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testTaskURLResponse - 2018.11.25 at 23h 29m 05s.xml">
+      <configuration name="SecondParserTest.testTaskURLResponse" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
@@ -441,7 +455,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32820514" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36410257" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32820514" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -519,11 +533,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Renamed parser classes and started writing second parser impl" />
     <MESSAGE value="First impl of most basic parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="First impl of most basic parser" />
+    <MESSAGE value="Added new test with array.Going to write my own string buffer based split method" />
+    <MESSAGE value="Added array based parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added array based parser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JSONParser/SecondParser.java</url>
+          <line>11</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="16" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -896,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/JSONParser/SecondParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="125">
+          <caret line="27" column="112" selection-start-line="27" selection-start-column="112" selection-end-line="27" selection-end-column="112" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -906,8 +930,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="38">
+          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
         </state>
       </provider>
     </entry>

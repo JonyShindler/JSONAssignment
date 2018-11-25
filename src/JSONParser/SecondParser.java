@@ -14,10 +14,8 @@ public class SecondParser {
             //Dont split on commas if we are inside an array
             if (c=='[') {
                 insideArray = true;
-                System.out.println("Its an array");
             } else if (c==']') {
                 insideArray = false;
-                System.out.println("Array over");
             } else if (!insideArray && c == ',') {
                 //Do a split
                 splitStrings.add(stringBuffer.toString());
@@ -25,23 +23,14 @@ public class SecondParser {
             } else {
                 stringBuffer.append(c);
             }
-            //Process char
         }
         splitStrings.add(stringBuffer.toString());
 
 
-//        String[] splitStrings = json.split(",");
-        List<String> strings = new ArrayList<>();
-
-        for (String aString : splitStrings) {
-            System.out.println("String is " + aString);
-            strings.add(aString);
-        }
-
         // now put them in the map by splutting them again
-        Map<String, String> jsonMap = new HashMap<>();
+        Map<String, String> jsonMap = new TreeMap<>();
 
-        for (String string : strings) {
+        for (String string : splitStrings) {
             string = string.replaceAll("\"", "");
             String[] split = string.split(":");
             //remove the speech marks from strings for now
@@ -49,7 +38,7 @@ public class SecondParser {
             jsonMap.put(split[0], split[1]);
         }
 
-
+//TODO we need to handle objects inside objects. each will get its own map
 
 
         return jsonMap;
