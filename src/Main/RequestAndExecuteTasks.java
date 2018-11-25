@@ -90,13 +90,13 @@ private FileWriter fileWriter;
 
 
     private static FileWriter initialiseFileWriter() throws IOException {
-        //        String filePath = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
-//        String filePath = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
-        String filePath = "/home/jony/git/JSONAssignment/outputFile.txt";
-        PrintWriter pw = new PrintWriter(filePath);
+        String filePathWorkPc = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
+        String filePathDesktop = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
+        String filePathLaptop = "/home/jony/git/JSONAssignment/outputFile.txt";
+        PrintWriter pw = new PrintWriter(filePathLaptop);
         pw.close();
 
-        return new FileWriter(filePath);
+        return new FileWriter(filePathLaptop);
     }
 
 }
