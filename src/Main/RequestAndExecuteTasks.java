@@ -2,7 +2,7 @@ package Main;
 
 import HTTP.GetRequester;
 import HTTP.PostRequester;
-import JSONParser.BasicParser;
+import JSONParser.GSONParser;
 import Operations.OperationClass;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -33,7 +33,7 @@ private FileWriter fileWriter;
         String taskURLS = new GetRequester().sendGetRequest("/student?id=s113867");
         fileWriter.write(taskURLS + "\n");
 
-        JsonObject jsonObject = new BasicParser().parse(taskURLS);
+        JsonObject jsonObject = new GSONParser().parse(taskURLS);
         System.out.println();
 
         //Note this is the entire response, it has not filtered out the tasks yet.
@@ -91,7 +91,8 @@ private FileWriter fileWriter;
 
     private static FileWriter initialiseFileWriter() throws IOException {
         //        String filePath = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
-        String filePath = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
+//        String filePath = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
+        String filePath = "/home/jony/git/JSONAssignment/outputFile.txt";
         PrintWriter pw = new PrintWriter(filePath);
         pw.close();
 
