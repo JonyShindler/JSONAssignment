@@ -11,7 +11,7 @@ public class SecondParserTest {
         String json = "{\"id\":\"s113867\",\"task\":\"/task/5447\"}";
         System.out.println("Input JSON is: " + json);
         Map<String,String> map = new SecondParser().parse(json);
-        System.out.println(map.toString());
+        System.out.println("Map is: " + map.toString());
 
     }
 
@@ -20,7 +20,7 @@ public class SecondParserTest {
         String json = "{\"id\":\"s113867\",\"tasks\":[\"/task/5447\",\"/task/2867\",\"/task/8060\"]}";
         System.out.println("Input JSON is: " + json);
         Map<String,String> map = new SecondParser().parse(json);
-        System.out.println(map.toString());
+        System.out.println("Map is: " + map.toString());
 
     }
 
