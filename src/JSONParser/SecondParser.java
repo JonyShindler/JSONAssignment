@@ -3,33 +3,44 @@ package JSONParser;
 import java.util.*;
 
 public class SecondParser {
+
+    //make a method that given a string, it will extract the objects and add them as children?
+
+
+
+
+
+
     public String parse(String json) {
 
         //TODO looks like we overwrote it, woopsie.
-        boolean insideObject = false;
         StringBuffer stringBuffer = new StringBuffer();
-        JSONObject jsonObject = new JSONObject();
+        JSONObject workingJSONObject = new JSONObject();
         for (int i = 0; i < json.length(); i++) {
             char c = json.charAt(i);
             if (c == '{') {
-                //
-                insideObject = true;
-                jsonObject.setStartChar(i);
-                // go till semi colon. that is the key.
-                // then go till the } and that is all the node. just store that as a string for now,
-                // later we cna process those strings?
+                //if there was already a parent, use that, otherwise add this as a child.
+                if (workingJSONObject.getParentObject() == null) {
+                    //this must the root node
+                    // do nothing
+                } else {
+                    // this is a child node. so create a new JSONObject and set its parent as the other one.
+                    JSONObject childObject = new JSONObject();
+                    workingJSONObject.setChildObject(childObject);
+                    workingJSONObject = childObject;
+                }
+                workingJSONObject.setStartChar(i);
             } else if (c == ':'){
                 //the string buffer was the key. now lets do the node bit.
-                jsonObject.setKey(stringBuffer.toString());
+                workingJSONObject.setKey(stringBuffer.toString());
                 stringBuffer.delete(0, stringBuffer.capacity());
 
             } else if (c == '}'){
                 // go till the end of the object.
-                insideObject = false;
-                jsonObject.setEndChar(i);
-                jsonObject.setNode(stringBuffer.toString());
+                workingJSONObject.setEndChar(i);
+                workingJSONObject.setNode(stringBuffer.toString());
                 stringBuffer.delete(0, stringBuffer.capacity());
-                System.out.println(jsonObject.toString());
+                System.out.println(workingJSONObject.toString());
                 //TODO if there are more chars to go, i.e. a new object, then we need to add that as the key...
 
             } else {
@@ -39,7 +50,7 @@ public class SecondParser {
             //create a JSON object to hold that info for now. later on we can create more JSON objects inside it.
         }
 
-        return jsonObject.toString();
+        return workingJSONObject.toString();
 
         //everything between { and the next : is the key. everything between : and } is the node.
         // so lets try and implement that at least.

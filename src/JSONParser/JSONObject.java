@@ -6,15 +6,28 @@ public class JSONObject {
     private String node;
     private int startChar;
     private int endChar;
-
-    public JSONObject(String key, String node, int startChar, int endChar) {
-        this.key = key;
-        this.node = node;
-        this.startChar = startChar;
-        this.endChar = endChar;
-    }
+    private JSONObject childObject;
+    private JSONObject parentObject;
 
     public JSONObject() {
+    }
+
+    public JSONObject getChildObject() {
+        return childObject;
+    }
+
+    public void setChildObject(JSONObject childObject) {
+        this.childObject = childObject;
+        childObject.setParentObject(this);
+    }
+
+    public JSONObject getParentObject() {
+        return parentObject;
+    }
+
+    public void setParentObject(JSONObject parentObject) {
+        this.parentObject = parentObject;
+        parentObject.setChildObject(this);
     }
 
     public String getKey() {
@@ -56,6 +69,8 @@ public class JSONObject {
                 ", node='" + node + '\'' +
                 ", startChar=" + startChar +
                 ", endChar=" + endChar +
+                ", childObject=" + childObject +
+                ", parentObject=" + parentObject +
                 '}';
     }
 }
