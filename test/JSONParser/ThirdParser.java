@@ -48,7 +48,13 @@ public class ThirdParser {
                 childObject.setEndChar(i);
                 return childObject;
             } else if (c==','){
-                val = new JString(stringBuffer.toString());
+                //TODO if we just processed a child object, then we should do anything.
+                if (childJObject!=null){
+                    childJObject=null;
+                    continue;
+                } else {
+                    val = new JString(stringBuffer.toString());
+                }
                 jObject.add(key, val);
                 stringBuffer.delete(0, stringBuffer.capacity());
             }
