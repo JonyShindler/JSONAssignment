@@ -1,19 +1,25 @@
 package JSONParser;
 
+import jdk.nashorn.internal.parser.TokenKind;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class JArray extends JToken{
 
-    private List<JObject> jObjects = new ArrayList<>();
+    private List<JToken> jObjects = new ArrayList<>();
 
+//TODO Arrays can contain objects, strings, numbers, true,faalse or another array....
 
     public JArray add(JObject value) {
         jObjects.add(value);
         return this;
     }
 
+    public List<JToken> getArrayNodes(){
+        return jObjects;
+    }
 
     @Override
     public boolean isArray() {
@@ -25,7 +31,7 @@ public class JArray extends JToken{
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append('[');
         int i = 1;
-        for (JObject jObject : jObjects) {
+        for (JToken jObject : jObjects) {
             if (jObjects.size() != 1 && i !=1) {
                 stringBuffer.append(',');
             }

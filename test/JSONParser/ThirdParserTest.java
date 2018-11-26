@@ -144,6 +144,8 @@ public class ThirdParserTest {
         JObject map = new ThirdParser().parse(json);
         System.out.println("Map is: " + map.toString());
         assertEquals("{price=10,menu=[{food=cake,calories=lots},{food=bun,calories=low}],tasty=yes}", map.toString());
+
+
     }
 
 
