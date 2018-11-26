@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThirdParser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThirdParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThirdParserTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ThirdParserTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+            <state relative-caret-position="266">
+              <caret line="102" column="61" selection-start-line="102" selection-start-column="61" selection-end-line="102" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -189,8 +189,8 @@
         <option value="$PROJECT_DIR$/src/JSONParser/JString.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/JToken.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/JObject.java" />
-        <option value="$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java" />
         <option value="$PROJECT_DIR$/test/JSONParser/ThirdParser.java" />
+        <option value="$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java" />
       </list>
     </option>
   </component>
@@ -312,7 +312,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd">
+  <component name="RunManager" selected="JUnit.ThirdParserTest.testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -339,7 +339,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="ThirdParserTest.testSingleJSOnObjectWithTwoPairs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ThirdParserTest.testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JSONAssignment" />
       <extension name="coverage">
         <pattern>
@@ -351,53 +351,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="JSONParser" />
       <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
-      <option name="METHOD_NAME" value="testSingleJSOnObjectWithTwoPairs" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ThirdParserTest.testTwoNestedJSOnObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JSONAssignment" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="JSONParser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="JSONParser" />
-      <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
-      <option name="METHOD_NAME" value="testTwoNestedJSOnObject" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStrings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JSONAssignment" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="JSONParser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="JSONParser" />
-      <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
-      <option name="METHOD_NAME" value="testTwoNestedJSOnObjectsWithOtherStrings" />
+      <option name="METHOD_NAME" value="testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -421,6 +375,52 @@
       <option name="PACKAGE_NAME" value="JSONParser" />
       <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
       <option name="METHOD_NAME" value="testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JSONAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JSONParser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="JSONParser" />
+      <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
+      <option name="METHOD_NAME" value="testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JSONAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JSONParser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="JSONParser" />
+      <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
+      <option name="METHOD_NAME" value="testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -470,19 +470,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.ThirdParserTest.testSingleJSOnObjectWithTwoPairs" />
-      <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObject" />
       <item itemvalue="JUnit.ThirdParserTest" />
-      <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStrings" />
       <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" />
+      <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning" />
+      <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent" />
+      <item itemvalue="JUnit.ThirdParserTest.testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ThirdParserTest.testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent" />
+        <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent" />
+        <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning" />
         <item itemvalue="JUnit.ThirdParserTest" />
         <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" />
-        <item itemvalue="JUnit.ThirdParserTest.testSingleJSOnObjectWithTwoPairs" />
-        <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStrings" />
-        <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObject" />
       </list>
     </recent_temporary>
   </component>
@@ -545,24 +545,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStrings - 2018.11.26 at 21h 48m 30s.xml">
-      <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStrings" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 50m 16s.xml">
-      <configuration name="ThirdParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd - 2018.11.26 at 21h 51m 21s.xml">
-      <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd - 2018.11.26 at 21h 54m 59s.xml">
-      <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 57m 43s.xml">
-      <configuration name="ThirdParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 58m 16s.xml">
-      <configuration name="ThirdParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd - 2018.11.26 at 21h 59m 28s.xml">
       <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" configurationId="JUnit" />
     </history-entry>
@@ -574,6 +556,24 @@
     </history-entry>
     <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd - 2018.11.26 at 22h 01m 23s.xml">
       <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEnd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest - 2018.11.26 at 22h 01m 35s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning - 2018.11.26 at 22h 02m 29s.xml">
+      <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent - 2018.11.26 at 22h 03m 10s.xml">
+      <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest_testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent - 2018.11.26 at 22h 03m 55s.xml">
+      <configuration name="ThirdParserTest.testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest_testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent - 2018.11.26 at 22h 05m 06s.xml">
+      <configuration name="ThirdParserTest.testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest_testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent - 2018.11.26 at 22h 05m 19s.xml">
+      <configuration name="ThirdParserTest.testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
@@ -592,7 +592,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32879046" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3794643" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3794643" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
@@ -603,7 +603,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.296875" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.296875" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -700,7 +700,7 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>taskJson.get(&quot;response URL&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1045,16 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -1062,6 +1052,16 @@
           <folding>
             <element signature="e#2617#2618#0" expanded="true" />
             <element signature="e#2644#2645#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="102" column="61" selection-start-line="102" selection-start-column="61" selection-end-line="102" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

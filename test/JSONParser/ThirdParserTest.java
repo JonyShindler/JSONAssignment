@@ -80,4 +80,31 @@ public class ThirdParserTest {
         assertEquals("{menu={food=cake},tasty=yes}", map.toString());
     }
 
+    @Test
+    public void testTwoNestedJSOnObjectsWithOtherStringsAtTheEndAndBeginning(){
+        String json = "{price:10,menu:{food:cake},tasty:yes}";
+        System.out.println("Input JSON is: " + json);
+        JObject map = new ThirdParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+        assertEquals("{price=10,menu={food=cake},tasty=yes}", map.toString());
+    }
+
+    @Test
+    public void testTwoNestedJSOnObjectsWithOtherStringsOnChildAndParent(){
+        String json = "{price:10,menu:{food:cake,sugar:lots},tasty:yes}";
+        System.out.println("Input JSON is: " + json);
+        JObject map = new ThirdParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+        assertEquals("{price=10,menu={food=cake,sugar=lots},tasty=yes}", map.toString());
+    }
+
+    @Test
+    public void testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent(){
+        String json = "{price:10,menu:{food:cake,ingredients:{sugar:lots,veg:none}},tasty:yes}";
+        System.out.println("Input JSON is: " + json);
+        JObject map = new ThirdParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+        assertEquals("{price=10,menu={food=cake,ingredients={sugar=lots,veg=none}},tasty=yes}", map.toString());
+    }
+
 }
