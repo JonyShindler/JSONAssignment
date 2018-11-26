@@ -20,8 +20,8 @@
       <file leaf-file-name="SecondParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+            <state relative-caret-position="72">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -29,11 +29,8 @@
       <file leaf-file-name="SecondParserTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/JSONParser/SecondParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="27" column="112" selection-start-line="27" selection-start-column="112" selection-end-line="27" selection-end-column="112" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="704">
+              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -140,8 +137,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -188,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SecondParserTest.testTaskURLResponse">
+  <component name="RunManager" selected="JUnit.SecondParserTest.testArray">
     <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.MainClass" />
       <module name="JSONAssignment" />
@@ -342,11 +339,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SecondParserTest.testArray" />
+        <item itemvalue="JUnit.SecondParserTest" />
+        <item itemvalue="JUnit.SecondParserTest.testSuperBasicCase" />
         <item itemvalue="JUnit.SecondParserTest.testTaskURLResponse" />
         <item itemvalue="Application.MainClass" />
-        <item itemvalue="JUnit.SecondParserTest" />
-        <item itemvalue="JUnit.SecondParserTest.testArray" />
-        <item itemvalue="JUnit.SecondParserTest.testSuperBasicCase" />
       </list>
     </recent_temporary>
   </component>
@@ -409,18 +406,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 18m 23s.xml">
-      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 18m 44s.xml">
-      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 21m 35s.xml">
-      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 22m 45s.xml">
-      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SecondParserTest_testArray - 2018.11.25 at 23h 22m 57s.xml">
       <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
     </history-entry>
@@ -439,63 +424,55 @@
     <history-entry file="SecondParserTest_testTaskURLResponse - 2018.11.25 at 23h 29m 05s.xml">
       <configuration name="SecondParserTest.testTaskURLResponse" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SecondParserTest_testSuperBasicCase - 2018.11.26 at 10h 55m 56s.xml">
+      <configuration name="SecondParserTest.testSuperBasicCase" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest - 2018.11.26 at 10h 56m 06s.xml">
+      <configuration name="SecondParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest - 2018.11.26 at 10h 57m 33s.xml">
+      <configuration name="SecondParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SecondParserTest_testArray - 2018.11.26 at 10h 57m 42s.xml">
+      <configuration name="SecondParserTest.testArray" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="6279000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32988626" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36410257" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32820514" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26097366" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32879046" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2622768" />
-      <window_info id="Image Layers" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2544643" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991727" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2675906" />
       <window_info id="Learn" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991727" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32988626" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26492536" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,14 +516,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JSONParser/SecondParser.java</url>
-          <line>11</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="16" />
     </breakpoint-manager>
   </component>
@@ -602,13 +571,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/src/HTTP/GetRequester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -626,13 +589,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/src/Main/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -657,20 +614,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
+    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -702,13 +647,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -723,13 +662,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/HTTP/GetRequester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -747,13 +680,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -768,13 +695,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/HTTP/GetRequester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -792,13 +713,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -866,13 +781,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -880,16 +789,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/JSONParser/GSONParserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Main/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -907,31 +807,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/String.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="827" column="22" lean-forward="true" selection-start-line="827" selection-start-column="22" selection-end-line="827" selection-end-column="22" />
-          <folding>
-            <element signature="e#25275#25276#0" expanded="true" />
-            <element signature="e#25317#25318#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/String.class" />
     <entry file="file://$PROJECT_DIR$/test/JSONParser/SecondParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="27" column="112" selection-start-line="27" selection-start-column="112" selection-end-line="27" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="704">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        <state relative-caret-position="72">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>

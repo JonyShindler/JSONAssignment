@@ -32,6 +32,15 @@ public class SecondParserTest {
 
     }
 
+    @Test
+    public void testNestedJSON(){
+        String json = "{instruction\":\"concat\",\"parameters\":[6960,\"6475\"],\"response URL\":\"/answer/3215}";
+        System.out.println("Input JSON is: " + json);
+        Map<String,String> map = new SecondParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+
+    }
+
 
 
 }
