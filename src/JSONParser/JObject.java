@@ -2,6 +2,7 @@ package JSONParser;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class JObject extends JToken {
 
@@ -9,6 +10,10 @@ public class JObject extends JToken {
 
     public boolean isHasChildren(){
         return !keysToValues.isEmpty();
+    }
+
+    public JToken get(String key){
+        return keysToValues.get(key);
     }
 
     public JObject add(String name, String value) {
@@ -40,5 +45,19 @@ public class JObject extends JToken {
         }
         stringBuffer.append('}');
         return stringBuffer.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JObject jObject = (JObject) o;
+        return Objects.equals(keysToValues, jObject.keysToValues);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(keysToValues);
     }
 }

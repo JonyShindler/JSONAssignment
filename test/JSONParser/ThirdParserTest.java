@@ -96,7 +96,19 @@ public class ThirdParserTest {
         JObject map = new ThirdParser().parse(json);
         System.out.println("Map is: " + map.toString());
         assertEquals("{price=10,menu={food=cake,sugar=lots},tasty=yes}", map.toString());
+
+        assertEquals(new JString("10"),map.get("price"));
+        assertEquals(new JString("yes"),map.get("tasty"));
+
+        JObject menu = new JObject();
+        menu.add("food", new JString("cake"));
+        menu.add("sugar", new JString("lots"));
+
+        assertEquals(menu,map.get("menu"));
+        assertEquals(new JString("cake"), menu.get("food"));
+        assertEquals(new JString("lots"), menu.get("sugar"));
     }
+
 
     @Test
     public void testThreeNestedJSOnObjectsWithOtherStringsOnChildAndParent(){
