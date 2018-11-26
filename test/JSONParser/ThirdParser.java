@@ -20,7 +20,7 @@ public class ThirdParser {
     private JObject parseObject(String json, int startChar) {
         StringBuffer stringBuffer = new StringBuffer();
         JObject jObject = new JObject();
-        JObject childJObject = null;
+        JToken childJObject = null;
 
         String key = "";
         JToken val;
@@ -47,6 +47,12 @@ public class ThirdParser {
                 JObject childObject = jObject.add(key, val);
                 childObject.setEndChar(i);
                 return childObject;
+            }  else if (c == '[') {
+                //this is an array.
+                i++;
+                childJObject = parseArray(json, i);
+                i = childJObject.getEndChar();
+                jObject.add(key, childJObject);
             } else if (c==','){
                 //If we just processed a child object, then we should do anything.
                 if (childJObject!=null){
@@ -66,23 +72,19 @@ public class ThirdParser {
         return jObject;
     }
 
-
-    private void splitAroundColonAndAddToMap(String string, Map<String, String> jsonMap) {
-        string = string.replaceAll("\"", "");
-        String[] split = string.split(":");
-        //remove the speech marks from strings for now
-
-        jsonMap.put(split[0], split[1]);
+    //An array is something which contains other objects...
+    private JArray parseArray(String json, int startChar) {
+        JArray jArray = new JArray();
+        for (int i = startChar; i < json.length(); i++) {
+            char c = json.charAt(i);
+            if (c == '{') {
+                JObject obj = parseObject(json, i+1);
+                jArray.add(obj);
+                i = obj.getEndChar();
+            } else if (c==']') {
+                jArray.setEndChar(i);
+            }
+        }
+        return jArray;
     }
-
-    private JToken readObject(String substring) {
-        return null;
-    }
-
-    private JToken readString(String substring) {
-        //read forwards until we get to the next } and store everything inside the JObject
-
-        return new JString(null);
-    }
-
 }

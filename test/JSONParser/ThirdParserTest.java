@@ -119,4 +119,13 @@ public class ThirdParserTest {
         assertEquals("{price=10,menu={food=cake,ingredients={sugar=lots,veg=none}},tasty=yes}", map.toString());
     }
 
+    @Test
+    public void testSimpleArray(){
+        String json = "{menu:[{food:cake},{food:bun}]}";
+        System.out.println("Input JSON is: " + json);
+        JObject map = new ThirdParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+        assertEquals("{menu=[{food=cake},{food=bun}]}", map.toString());
+    }
+
 }
