@@ -3,10 +3,57 @@ package JSONParser;
 import java.util.*;
 
 public class SecondParser {
-    public Map<String, String> parse(String json) {
+    public String parse(String json) {
 
+        //TODO looks like we overwrote it, woopsie.
+        boolean insideObject = false;
+        StringBuffer stringBuffer = new StringBuffer();
+        JSONObject jsonObject = new JSONObject();
+        for (int i = 0; i < json.length(); i++) {
+            char c = json.charAt(i);
+            if (c == '{') {
+                //
+                insideObject = true;
+                jsonObject.setStartChar(i);
+                // go till semi colon. that is the key.
+                // then go till the } and that is all the node. just store that as a string for now,
+                // later we cna process those strings?
+            } else if (c == ':'){
+                //the string buffer was the key. now lets do the node bit.
+                jsonObject.setKey(stringBuffer.toString());
+                stringBuffer.delete(0, stringBuffer.capacity());
+
+            } else if (c == '}'){
+                // go till the end of the object.
+                insideObject = false;
+                jsonObject.setEndChar(i);
+                jsonObject.setNode(stringBuffer.toString());
+                stringBuffer.delete(0, stringBuffer.capacity());
+                System.out.println(jsonObject.toString());
+                //TODO if there are more chars to go, i.e. a new object, then we need to add that as the key...
+
+            } else {
+                stringBuffer.append(c);
+            }
+
+            //create a JSON object to hold that info for now. later on we can create more JSON objects inside it.
+        }
+
+        return jsonObject.toString();
+
+        //everything between { and the next : is the key. everything between : and } is the node.
+        // so lets try and implement that at least.
+
+//TODO we need to handle objects inside objects. each will get its own map
+//TODO we might want to have wrapper objects for the arrays and stuff so they can be iterated over.
+
+    }
+
+    public Map<String, String> processObject(String json) {
         Map<String, String> jsonMap = new TreeMap<>();
 
+        //TODO this all works fine per object. but we need to do this process per object.
+        // TODO and each time we get a new object we need to do it again.
         boolean insideArray = false;
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < json.length(); i++){
@@ -28,10 +75,6 @@ public class SecondParser {
                 stringBuffer.append(c);
             }
         }
-
-//TODO we need to handle objects inside objects. each will get its own map
-//TODO we might want to have wrapper objects for the arrays and stuff so they can be iterated over.
-
         return jsonMap;
     }
 
