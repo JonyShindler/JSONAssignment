@@ -35,7 +35,7 @@ public class ThirdParser {
                 //Go back up and recursively call the parseObject method
                 i++;
                 childJObject = parseObject(json, i);
-                //TODO WHen we do this we need to update i so it doesnt carry on.
+                //When we have parsed a child object we need to update i so it doesnt carry on.
                 i = childJObject.getEndChar();
                 jObject.add(key, childJObject);
             } else if (c == '}') {
@@ -48,7 +48,7 @@ public class ThirdParser {
                 childObject.setEndChar(i);
                 return childObject;
             } else if (c==','){
-                //TODO if we just processed a child object, then we should do anything.
+                //If we just processed a child object, then we should do anything.
                 if (childJObject!=null){
                     childJObject=null;
                     continue;
