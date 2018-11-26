@@ -9,29 +9,50 @@ public class ThirdParser {
         for (int i = 0; i < json.length(); i++) {
             char c = json.charAt(i);
             if (c == '{') {
-                jObject = parseObject(json.substring(i+1, json.length()));
+                jObject = parseObject(json,1);
             }
 
         }
         return jObject;
     }
 
-    private JObject parseObject(String json) {
+    // this method needs to create a JObject from a string. so it needs to make the key and the value.
+    private JObject parseObject(String json, int startChar) {
         StringBuffer stringBuffer = new StringBuffer();
         JObject jObject = new JObject();
+        JObject childJObject = null;
 
         String key = "";
         JToken val;
-        for (int i = 0; i < json.length(); i++){
+        //TODO set start chars
+        for (int i = startChar; i < json.length(); i++){
             char c = json.charAt(i);
             if (c == ':') {
                 //split
                 key = stringBuffer.toString();
                 stringBuffer.delete(0, stringBuffer.capacity());
+            } else if (c == '{') {
+                //Go back up and recursively call the parseObject method
+                i++;
+                childJObject = parseObject(json, i);
+                //TODO WHen we do this we need to update i so it doesnt carry on.
+                i = childJObject.getEndChar();
+                jObject.add(key, childJObject);
             } else if (c == '}') {
-                val = new JString(stringBuffer.toString());
-                jObject.add(key, val);
-                stringBuffer.delete(0, stringBuffer.capacity());
+                //If its the final close then allow it?
+                if (i == json.length()-1 && jObject.isHasChildren()) {
+                    break;
+                }
+
+                //TODO we havent allowed the child object to be an object?
+                if (childJObject!=null){
+                    val = childJObject;
+                } else {
+                    val = new JString(stringBuffer.toString());
+                }
+                JObject childObject = jObject.add(key, val);
+                childObject.setEndChar(i);
+                return childObject;
             } else {
                 stringBuffer.append(c);
             }
