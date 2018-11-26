@@ -29,11 +29,11 @@
       <file leaf-file-name="ThirdParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+            <state relative-caret-position="260">
+              <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
               <folding>
-                <element signature="e#1361#1362#0" expanded="true" />
-                <element signature="e#1388#1389#0" expanded="true" />
+                <element signature="e#2617#2618#0" expanded="true" />
+                <element signature="e#2644#2645#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,8 +42,8 @@
       <file leaf-file-name="ThirdParserTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+            <state relative-caret-position="442">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,16 +83,14 @@
       <file leaf-file-name="JObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JSONParser/JObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="354">
+              <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#208#209#0" expanded="true" />
                 <element signature="e#242#243#0" expanded="true" />
                 <element signature="e#644#645#0" expanded="true" />
                 <element signature="e#671#672#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,8 +112,8 @@
       <file leaf-file-name="JString.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JSONParser/JString.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="44">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding>
                 <element signature="e#128#129#0" expanded="true" />
                 <element signature="e#164#165#0" expanded="true" />
@@ -172,8 +170,8 @@
         <option value="$PROJECT_DIR$/src/JSONParser/JArray.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/JString.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/JToken.java" />
-        <option value="$PROJECT_DIR$/src/JSONParser/JObject.java" />
         <option value="$PROJECT_DIR$/test/JSONParser/ThirdParser.java" />
+        <option value="$PROJECT_DIR$/src/JSONParser/JObject.java" />
         <option value="$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java" />
       </list>
     </option>
@@ -369,7 +367,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="ThirdParserTest.testThreeNestedJSOnObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ThirdParserTest.testSingleJSOnObjectWithTwoPairs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JSONAssignment" />
       <extension name="coverage">
         <pattern>
@@ -381,7 +379,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="JSONParser" />
       <option name="MAIN_CLASS_NAME" value="JSONParser.ThirdParserTest" />
-      <option name="METHOD_NAME" value="testThreeNestedJSOnObject" />
+      <option name="METHOD_NAME" value="testSingleJSOnObjectWithTwoPairs" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -455,15 +453,15 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.ThirdParserTest.testSingleJSOnObject" />
-      <item itemvalue="JUnit.ThirdParserTest" />
+      <item itemvalue="JUnit.ThirdParserTest.testSingleJSOnObjectWithTwoPairs" />
       <item itemvalue="JUnit.ThirdParserTest.testNestedJSOnObject" />
       <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObject" />
-      <item itemvalue="JUnit.ThirdParserTest.testThreeNestedJSOnObject" />
+      <item itemvalue="JUnit.ThirdParserTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ThirdParserTest" />
-        <item itemvalue="JUnit.ThirdParserTest.testThreeNestedJSOnObject" />
+        <item itemvalue="JUnit.ThirdParserTest.testSingleJSOnObjectWithTwoPairs" />
         <item itemvalue="JUnit.ThirdParserTest.testTwoNestedJSOnObject" />
         <item itemvalue="JUnit.ThirdParserTest.testNestedJSOnObject" />
         <item itemvalue="JUnit.ThirdParserTest.testSingleJSOnObject" />
@@ -529,35 +527,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ThirdParserTest_testNestedJSOnObject - 2018.11.26 at 20h 57m 08s.xml">
-      <configuration name="ThirdParserTest.testNestedJSOnObject" configurationId="JUnit" />
+    <history-entry file="ThirdParserTest_testSingleJSOnObjectWithTwoPairs - 2018.11.26 at 21h 30m 46s.xml">
+      <configuration name="ThirdParserTest.testSingleJSOnObjectWithTwoPairs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ThirdParserTest_testSingleJSOnObject - 2018.11.26 at 20h 57m 11s.xml">
-      <configuration name="ThirdParserTest.testSingleJSOnObject" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest_testSingleJSOnObject - 2018.11.26 at 20h 57m 39s.xml">
-      <configuration name="ThirdParserTest.testSingleJSOnObject" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest_testSingleJSOnObject - 2018.11.26 at 20h 59m 34s.xml">
-      <configuration name="ThirdParserTest.testSingleJSOnObject" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest_testNestedJSOnObject - 2018.11.26 at 20h 59m 39s.xml">
-      <configuration name="ThirdParserTest.testNestedJSOnObject" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 00m 36s.xml">
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 34m 03s.xml">
       <configuration name="ThirdParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 01m 13s.xml">
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 34m 27s.xml">
       <configuration name="ThirdParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ThirdParserTest_testTwoNestedJSOnObject - 2018.11.26 at 21h 13m 28s.xml">
-      <configuration name="ThirdParserTest.testTwoNestedJSOnObject" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 14m 53s.xml">
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 37m 02s.xml">
       <configuration name="ThirdParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ThirdParserTest_testThreeNestedJSOnObject - 2018.11.26 at 21h 16m 05s.xml">
-      <configuration name="ThirdParserTest.testThreeNestedJSOnObject" configurationId="JUnit" />
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 37m 38s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 38m 13s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 39m 07s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 41m 09s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 41m 26s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThirdParserTest - 2018.11.26 at 21h 41m 56s.xml">
+      <configuration name="ThirdParserTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
@@ -658,8 +656,14 @@
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/JSONParser/ThirdParser.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="36" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -690,7 +694,7 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>taskJson.get(&quot;response URL&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -967,21 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/JString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding>
-            <element signature="e#128#129#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#104#105#0" expanded="true" />
-            <element signature="e#144#145#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JSONParser/JToken.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1009,37 +998,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/JObject.java">
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/JString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#208#209#0" expanded="true" />
-            <element signature="e#242#243#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#128#129#0" expanded="true" />
+            <element signature="e#164#165#0" expanded="true" />
+            <element signature="e#104#105#0" expanded="true" />
+            <element signature="e#144#145#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        <state relative-caret-position="260">
+          <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
           <folding>
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1388#1389#0" expanded="true" />
+            <element signature="e#2617#2618#0" expanded="true" />
+            <element signature="e#2644#2645#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONParser/JObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state relative-caret-position="442">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

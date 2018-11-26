@@ -17,6 +17,24 @@ public class ThirdParserTest {
     }
 
     @Test
+    public void testSingleJSOnObjectWithTwoPairs(){
+        String json = "{menu:id,price:10}";
+        System.out.println("Input JSON is: " + json);
+        JObject map = new ThirdParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+        assertEquals("{menu=id,price=10}", map.toString());
+    }
+
+    @Test
+    public void testSingleJSOnObjectWithThreePairs(){
+        String json = "{menu:id,price:10,tasty:yes}";
+        System.out.println("Input JSON is: " + json);
+        JObject map = new ThirdParser().parse(json);
+        System.out.println("Map is: " + map.toString());
+        assertEquals("{menu=id,price=10,tasty=yes}", map.toString());
+    }
+
+    @Test
     public void testNestedJSOnObject(){
         String json = "{a:{id:b}}";
         System.out.println("Input JSON is: " + json);
@@ -43,5 +61,13 @@ public class ThirdParserTest {
         System.out.println("Map is: " + map.toString());
         assertEquals("{a={b={c={d=e}}}}", map.toString());
     }
+
+//    @Test
+//    public void testTwoNestedJSOnObjectsWithOtherStrings(){
+//        String json = "{menu:{food:cake},price:10}";
+//        System.out.println("Input JSON is: " + json);
+//        JObject map = new ThirdParser().parse(json);
+//        System.out.println("Map is: " + map.toString());
+//    }
 
 }

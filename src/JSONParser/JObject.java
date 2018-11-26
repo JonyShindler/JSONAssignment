@@ -1,11 +1,11 @@
 package JSONParser;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class JObject extends JToken {
 
-    private Map<String, JToken> keysToValues = new HashMap<>();
+    private Map<String, JToken> keysToValues = new TreeMap<>();
 
     public boolean isHasChildren(){
         return !keysToValues.isEmpty();
@@ -28,6 +28,17 @@ public class JObject extends JToken {
 
     @Override
     public String toString() {
-        return keysToValues.toString();
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append('{');
+        int i=1;
+        for (Map.Entry entry: keysToValues.entrySet()) {
+            if (keysToValues.entrySet().size() != 1 && i !=1) {
+                stringBuffer.append(',');
+            }
+            stringBuffer.append(entry.getKey() + "=" + entry.getValue());
+            i++;
+        }
+        stringBuffer.append('}');
+        return stringBuffer.toString();
     }
 }

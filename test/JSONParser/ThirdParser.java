@@ -39,12 +39,6 @@ public class ThirdParser {
                 i = childJObject.getEndChar();
                 jObject.add(key, childJObject);
             } else if (c == '}') {
-                //If its the final close then allow it?
-                if (i == json.length()-1 && jObject.isHasChildren()) {
-                    break;
-                }
-
-                //TODO we havent allowed the child object to be an object?
                 if (childJObject!=null){
                     val = childJObject;
                 } else {
@@ -53,13 +47,19 @@ public class ThirdParser {
                 JObject childObject = jObject.add(key, val);
                 childObject.setEndChar(i);
                 return childObject;
-            } else {
+            } else if (c==','){
+                val = new JString(stringBuffer.toString());
+                jObject.add(key, val);
+                stringBuffer.delete(0, stringBuffer.capacity());
+            }
+            else {
                 stringBuffer.append(c);
             }
         }
 
         return jObject;
     }
+
 
     private void splitAroundColonAndAddToMap(String string, Map<String, String> jsonMap) {
         string = string.replaceAll("\"", "");
