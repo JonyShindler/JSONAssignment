@@ -1,11 +1,11 @@
 package JSONParser;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class JObject extends JToken {
 
-    private Map<String, JToken> keysToValues = new TreeMap<>();
+    private Map<String, JToken> keysToValues = new LinkedHashMap<>();
 
     public boolean isHasChildren(){
         return !keysToValues.isEmpty();
