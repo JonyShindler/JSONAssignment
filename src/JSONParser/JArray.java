@@ -1,7 +1,5 @@
 package JSONParser;
 
-import jdk.nashorn.internal.parser.TokenKind;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +15,7 @@ public class JArray extends JToken{
         return this;
     }
 
-    public List<JToken> getArrayNodes(){
+    public List<JToken> getArray() {
         return jObjects;
     }
 

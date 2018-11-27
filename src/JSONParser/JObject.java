@@ -1,6 +1,7 @@
 package JSONParser;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -8,12 +9,30 @@ public class JObject extends JToken {
 
     private Map<String, JToken> keysToValues = new LinkedHashMap<>();
 
+    public JObject(String key1, JToken token1, String key2, JToken token2) {
+        keysToValues.put(key1,token1);
+        keysToValues.put(key2,token2);
+    }
+
+    public JObject(String key1, JToken token1) {
+        keysToValues.put(key1,token1);
+    }
+
+    public JObject() {
+    }
+
     public boolean isHasChildren(){
         return !keysToValues.isEmpty();
     }
 
     public JToken get(String key){
         return keysToValues.get(key);
+    }
+
+    @Override
+    public List<JToken> getAsArray(String key) {
+       JArray array = (JArray) keysToValues.get(key);
+       return array.getArray();
     }
 
     public JObject add(String name, String value) {

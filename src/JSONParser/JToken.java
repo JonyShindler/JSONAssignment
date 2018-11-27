@@ -1,5 +1,7 @@
 package JSONParser;
 
+import java.util.List;
+
 public class JToken {
 
     private int startChar;
@@ -42,4 +44,6 @@ public class JToken {
     public boolean isBoolean(){
         return false;
     }
+
+    public List<JToken> getAsArray(String key){throw new UnsupportedOperationException();}
 }

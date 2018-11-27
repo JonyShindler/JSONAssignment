@@ -3,6 +3,9 @@ package JSONParser;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class ThirdParserTest {
@@ -135,6 +138,12 @@ public class ThirdParserTest {
         JObject map = new ThirdParser().parse(json);
         System.out.println("Map is: " + map.toString());
         assertEquals("{price=10,menu=[{food=cake},{food=bun}],tasty=yes}", map.toString());
+
+        List<JToken> jToken = map.getAsArray("menu");
+        List<JToken> expectedList = new ArrayList<>();
+        expectedList.add(new JObject("food", new JString("cake")));
+        expectedList.add(new JObject("food", new JString("bun")));
+        assertEquals(expectedList, jToken);
     }
 
     @Test
