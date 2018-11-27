@@ -30,7 +30,7 @@ private FileWriter fileWriter;
     // TODO Wrap send request in exception and then pass that on if it happens?
     //This requests and returns the list of tasks we need.
     public JsonObject sendRequestToRetrieveListOfTasks() throws IOException {
-        String taskURLS = new GetRequester().sendGetRequest("/student?id=s113867");
+        String taskURLS = new GetRequester().sendGetRequest("/student?id=s195206");
         fileWriter.write(taskURLS + "\n");
 
         JsonObject jsonObject = new GSONParser().parse(taskURLS);
@@ -93,10 +93,10 @@ private FileWriter fileWriter;
         String filePathWorkPc = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
         String filePathDesktop = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
         String filePathLaptop = "/home/jony/git/JSONAssignment/outputFile.txt";
-        PrintWriter pw = new PrintWriter(filePathLaptop);
+        PrintWriter pw = new PrintWriter(filePathDesktop );
         pw.close();
 
-        return new FileWriter(filePathLaptop);
+        return new FileWriter(filePathDesktop);
     }
 
 }
