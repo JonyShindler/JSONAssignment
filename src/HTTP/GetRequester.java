@@ -18,6 +18,8 @@ public class GetRequester {
 
         con.setRequestMethod("GET");
 
+        //TODO this needs to handle bad response codes and push them to the Main method.
+
         int responseCode = con.getResponseCode();
          System.out.println("\nSending 'GET' request to URL : " + url);
         // System.out.println("Response Code : " + responseCode);

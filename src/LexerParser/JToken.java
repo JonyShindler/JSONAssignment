@@ -15,4 +15,8 @@ public abstract class JToken {
     public String getAsString(){
         throw new UnsupportedOperationException();
     }
+
+    public Number getAsNumber(){
+        throw new UnsupportedOperationException();
+    }
 }

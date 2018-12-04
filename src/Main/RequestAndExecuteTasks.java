@@ -54,11 +54,11 @@ private FileWriter fileWriter;
         // Loop through all URLS.
         for (JToken element : taskURLArray) {
             try {
-                //TODO again maybe wrap this individual bit.
+                //Element is the URL
                 String task = retrieveIndividualTaskDetails(element);
 
                 //TODO then wrap the unparsing bit?
-                //TODO we couldnt parse the task object for some reason.
+                //TODO this bit throws the exception.
                 Map<String, JToken> individualTask = new Parser2().parse(task).getAsMap();
                 String taskInstruction = individualTask.get("instruction").getAsString();
                 List<JToken> parameters = individualTask.get("parameters").getAsArray();
@@ -69,10 +69,9 @@ private FileWriter fileWriter;
 
             } catch (IllegalStateException e) {
                 System.out.println(e.getMessage());
-                //TODO we need to send an error message back to the server.
             } catch (IOException e) {
-                e.printStackTrace();
-            }
+                sendTaskResponse(element.getAsString(), "Not valid JSON");
+             }
 //TODO write each JSON document and response we sent back to a file.
         }
 

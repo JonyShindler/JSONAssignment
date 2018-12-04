@@ -15,6 +15,12 @@ public class JNumber extends JToken {
         return number.toString();
     }
 
+
+    @Override
+    public Number getAsNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return number.toString();

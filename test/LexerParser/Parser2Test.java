@@ -13,12 +13,6 @@ import static org.junit.Assert.assertEquals;
 public class Parser2Test {
 
     @Test
-    public void testArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[\"a\",\"b\",\"c\"]");
-        assertEquals(createExpectedList("a","b","c"), jToken.getAsArray());
-    }
-
-    @Test
     public void testObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\"}");
         Map<String, JToken> expectedMap = new ExpectedMapBuilder().addNode("a", new JString("b")).buildMap();
@@ -39,16 +33,15 @@ public class Parser2Test {
         assertEquals(asMap.get("c"), new JString("d"));
     }
 
-    //TODO the numbers dont work yet.
     @Test
     public void testArrayInObject () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("{\"z\":\"x\",\"a\":[\"b\",\"c\",\"d\"],\"1\":\"2\"}");
+        JToken jToken = parseJsonAndAssertOutput("{\"z\":\"x\",\"a\":[\"b\",\"c\",\"d\"],\"numbers\":2}");
         JArray jArray = new JArray(createExpectedList("b", "c", "d"));
         Map<String, JToken> expectedMap =
                 new ExpectedMapBuilder()
                         .addNode("z", new JString("x"))
                         .addNode("a", jArray)
-                        .addNode("1", new JString("2"))
+                        .addNode("numbers", new JNumber("2"))
                         .buildMap();
         Map<String, JToken> asMap = jToken.getAsMap();
         assertEquals(expectedMap, asMap);
@@ -62,12 +55,12 @@ public class Parser2Test {
 
     @Test
     public void testObjectInArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[\"a\",\"b\",{\"c\":\"d\"}]");
+        JToken jToken = parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",{\"c\":\"d\"}]}");
     }
 
     @Test
     public void testArrayInArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[\"a\",\"b\",[\"c\",\"d\"]]");
+        JToken jToken = parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",[\"c\",\"d\"]]}");
     }
 
     @Test

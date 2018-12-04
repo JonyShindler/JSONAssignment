@@ -1,7 +1,5 @@
 package LexerParser;
 
-import com.sun.deploy.security.ValidationState;
-
 import java.io.IOException;
 import java.io.StringReader;
 
@@ -13,12 +11,14 @@ public class Parser2 {
 
 		if (null == s) return new JString("");
 
-		JToken jToken = null;
+		JToken jToken;
 		Type symbolType = s.type;
 		if (symbolType == Type.OPEN_ARRAY) {
 			jToken = parseArray(lex);
 		} else if (symbolType == Type.OPEN_OBJECT) {
 			jToken =  parseObject(lex);
+		} else {
+			throw new IOException("JSON does not begin with {");
 		}
 
 		return jToken;
