@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class JArray extends JToken{
+public class OldJArray extends OldJToken {
 
-    private List<JToken> jObjects = new ArrayList<>();
+    private List<OldJToken> jObjects = new ArrayList<>();
 
 //TODO Arrays can contain objects, strings, numbers, true,faalse or another array....
 
-    public JArray add(JObject value) {
+    public OldJArray add(OldOldJObject value) {
         jObjects.add(value);
         return this;
     }
 
-    public List<JToken> getArray() {
+    public List<OldJToken> getArray() {
         return jObjects;
     }
 
@@ -29,7 +29,7 @@ public class JArray extends JToken{
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append('[');
         int i = 1;
-        for (JToken jObject : jObjects) {
+        for (OldJToken jObject : jObjects) {
             if (jObjects.size() != 1 && i !=1) {
                 stringBuffer.append(',');
             }
@@ -44,7 +44,7 @@ public class JArray extends JToken{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JArray jArray = (JArray) o;
+        OldJArray jArray = (OldJArray) o;
         return Objects.equals(jObjects, jArray.jObjects);
     }
 

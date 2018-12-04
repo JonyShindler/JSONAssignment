@@ -1,29 +1,27 @@
 package JSONParser;
 
-import java.util.Map;
-
 public class ThirdParser {
 
-    public JObject parse(String json) {
-        JObject jObject = new JObject();
+    public OldOldJObject parse(String json) {
+        OldOldJObject oldJObject = new OldOldJObject();
         for (int i = 0; i < json.length(); i++) {
             char c = json.charAt(i);
             if (c == '{') {
-                jObject = parseObject(json,1);
+                oldJObject = parseObject(json,1);
             }
 
         }
-        return jObject;
+        return oldJObject;
     }
 
-    // this method needs to create a JObject from a string. so it needs to make the key and the value.
-    private JObject parseObject(String json, int startChar) {
+    // this method needs to create a OldOldJObject from a string. so it needs to make the key and the value.
+    private OldOldJObject parseObject(String json, int startChar) {
         StringBuffer stringBuffer = new StringBuffer();
-        JObject jObject = new JObject();
-        JToken childJObject = null;
+        OldOldJObject oldJObject = new OldOldJObject();
+        OldJToken childJObject = null;
 
         String key = "";
-        JToken val;
+        OldJToken val;
         //TODO set start chars
         for (int i = startChar; i < json.length(); i++){
             char c = json.charAt(i);
@@ -37,14 +35,14 @@ public class ThirdParser {
                 childJObject = parseObject(json, i);
                 //When we have parsed a child object we need to update i so it doesnt carry on.
                 i = childJObject.getEndChar();
-                jObject.add(key, childJObject);
+                oldJObject.add(key, childJObject);
             } else if (c == '}') {
                 if (childJObject!=null){
                     val = childJObject;
                 } else {
-                    val = new JString(stringBuffer.toString());
+                    val = new OldJString(stringBuffer.toString());
                 }
-                JObject childObject = jObject.add(key, val);
+                OldOldJObject childObject = oldJObject.add(key, val);
                 childObject.setEndChar(i);
                 return childObject;
             }  else if (c == '[') {
@@ -52,16 +50,16 @@ public class ThirdParser {
                 i++;
                 childJObject = parseArray(json, i);
                 i = childJObject.getEndChar();
-                jObject.add(key, childJObject);
+                oldJObject.add(key, childJObject);
             } else if (c==','){
                 //If we just processed a child object, then we should do anything.
                 if (childJObject!=null){
                     childJObject=null;
                     continue;
                 } else {
-                    val = new JString(stringBuffer.toString());
+                    val = new OldJString(stringBuffer.toString());
                 }
-                jObject.add(key, val);
+                oldJObject.add(key, val);
                 stringBuffer.delete(0, stringBuffer.capacity());
             }
             else {
@@ -69,16 +67,16 @@ public class ThirdParser {
             }
         }
 
-        return jObject;
+        return oldJObject;
     }
 
     //An array is something which contains other objects...
-    private JArray parseArray(String json, int startChar) {
-        JArray jArray = new JArray();
+    private OldJArray parseArray(String json, int startChar) {
+        OldJArray jArray = new OldJArray();
         for (int i = startChar; i < json.length(); i++) {
             char c = json.charAt(i);
             if (c == '{') {
-                JObject obj = parseObject(json, i+1);
+                OldOldJObject obj = parseObject(json, i+1);
                 jArray.add(obj);
                 i = obj.getEndChar();
             } else if (c==']') {

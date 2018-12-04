@@ -1,31 +1,31 @@
 package JSONParser;
 
-public class JSONObject {
+public class OlderJSONObject {
 
     private String key;
     private String node;
     private int startChar;
     private int endChar;
-    private JSONObject childObject;
-    private JSONObject parentObject;
+    private OlderJSONObject childObject;
+    private OlderJSONObject parentObject;
 
-    public JSONObject() {
+    public OlderJSONObject() {
     }
 
-    public JSONObject getChildObject() {
+    public OlderJSONObject getChildObject() {
         return childObject;
     }
 
-    public void setChildObject(JSONObject childObject) {
+    public void setChildObject(OlderJSONObject childObject) {
         this.childObject = childObject;
         childObject.setParentObject(this);
     }
 
-    public JSONObject getParentObject() {
+    public OlderJSONObject getParentObject() {
         return parentObject;
     }
 
-    public void setParentObject(JSONObject parentObject) {
+    public void setParentObject(OlderJSONObject parentObject) {
         this.parentObject = parentObject;
         parentObject.setChildObject(this);
     }
@@ -64,7 +64,7 @@ public class JSONObject {
 
     @Override
     public String toString() {
-        return "JSONObject{" +
+        return "OlderJSONObject{" +
                 "key='" + key + '\'' +
                 ", node='" + node + '\'' +
                 ", startChar=" + startChar +

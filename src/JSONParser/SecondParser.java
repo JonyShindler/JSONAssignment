@@ -15,7 +15,7 @@ public class SecondParser {
 
         //TODO looks like we overwrote it, woopsie.
         StringBuffer stringBuffer = new StringBuffer();
-        JSONObject workingJSONObject = new JSONObject();
+        OlderJSONObject workingJSONObject = new OlderJSONObject();
         for (int i = 0; i < json.length(); i++) {
             char c = json.charAt(i);
             if (c == '{') {
@@ -24,8 +24,8 @@ public class SecondParser {
                     //this must the root node
                     // do nothing
                 } else {
-                    // this is a child node. so create a new JSONObject and set its parent as the other one.
-                    JSONObject childObject = new JSONObject();
+                    // this is a child node. so create a new OlderJSONObject and set its parent as the other one.
+                    OlderJSONObject childObject = new OlderJSONObject();
                     workingJSONObject.setChildObject(childObject);
                     workingJSONObject = childObject;
                 }

@@ -2,7 +2,7 @@ package JSONParser;
 
 import java.util.List;
 
-public class JToken {
+public class OldJToken {
 
     private int startChar;
     private int endChar;
@@ -45,5 +45,5 @@ public class JToken {
         return false;
     }
 
-    public List<JToken> getAsArray(String key){throw new UnsupportedOperationException();}
+    public List<OldJToken> getAsArray(String key){throw new UnsupportedOperationException();}
 }

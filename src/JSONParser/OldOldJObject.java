@@ -5,42 +5,42 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class JObject extends JToken {
+public class OldOldJObject extends OldJToken {
 
-    private Map<String, JToken> keysToValues = new LinkedHashMap<>();
+    private Map<String, OldJToken> keysToValues = new LinkedHashMap<>();
 
-    public JObject(String key1, JToken token1, String key2, JToken token2) {
+    public OldOldJObject(String key1, OldJToken token1, String key2, OldJToken token2) {
         keysToValues.put(key1,token1);
         keysToValues.put(key2,token2);
     }
 
-    public JObject(String key1, JToken token1) {
+    public OldOldJObject(String key1, OldJToken token1) {
         keysToValues.put(key1,token1);
     }
 
-    public JObject() {
+    public OldOldJObject() {
     }
 
     public boolean isHasChildren(){
         return !keysToValues.isEmpty();
     }
 
-    public JToken get(String key){
+    public OldJToken get(String key){
         return keysToValues.get(key);
     }
 
     @Override
-    public List<JToken> getAsArray(String key) {
-       JArray array = (JArray) keysToValues.get(key);
+    public List<OldJToken> getAsArray(String key) {
+       OldJArray array = (OldJArray) keysToValues.get(key);
        return array.getArray();
     }
 
-    public JObject add(String name, String value) {
-        add(name, new JString(value));
+    public OldOldJObject add(String name, String value) {
+        add(name, new OldJString(value));
         return this;
     }
 
-    public JObject add(String name, JToken value) {
+    public OldOldJObject add(String name, OldJToken value) {
         keysToValues.put(name, value);
         return this;
     }
@@ -70,8 +70,8 @@ public class JObject extends JToken {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JObject jObject = (JObject) o;
-        return Objects.equals(keysToValues, jObject.keysToValues);
+        OldOldJObject oldJObject = (OldOldJObject) o;
+        return Objects.equals(keysToValues, oldJObject.keysToValues);
     }
 
     @Override

@@ -2,12 +2,12 @@ package JSONParser;
 
 import java.util.Objects;
 
-public class JString extends JToken{
+public class OldJString extends OldJToken {
 
     private final String string;
 
 
-    public JString(String string) {
+    public OldJString(String string) {
         this.string = string;
     }
 
@@ -25,7 +25,7 @@ public class JString extends JToken{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JString jString = (JString) o;
+        OldJString jString = (OldJString) o;
         return Objects.equals(string, jString.string);
     }
 
