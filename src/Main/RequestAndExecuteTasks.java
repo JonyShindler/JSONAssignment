@@ -33,7 +33,7 @@ private FileWriter fileWriter;
         String taskURLS = new GetRequester().sendGetRequest("/student?id=s195206");
         fileWriter.write(taskURLS + "\n");
 
-        JsonObject jsonObject = new GSONParser().parse(taskURLS);
+        JsonObject jsonObject = new JsonParser().parse(taskURLS).getAsJsonObject();
         System.out.println();
 
         //Note this is the entire response, it has not filtered out the tasks yet.

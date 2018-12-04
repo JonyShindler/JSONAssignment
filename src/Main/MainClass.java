@@ -7,7 +7,6 @@ import java.io.IOException;
 
 public class MainClass {
 
-
     public static void main(String[] args) throws IOException {
         RequestAndExecuteTasks requestAndExecuteTasks = new RequestAndExecuteTasks();
 
@@ -15,6 +14,5 @@ public class MainClass {
         requestAndExecuteTasks.processTasks(tasksJsonResponse);
 
     }
-
 
 }

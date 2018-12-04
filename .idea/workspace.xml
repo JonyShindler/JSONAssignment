@@ -17,11 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LexerParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LexerParser/LexerParser.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="Parser2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LexerParser/Parser2.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -31,10 +26,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser2Test.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/MainClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RequestAndExecuteTasks.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main/RequestAndExecuteTasks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser2Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/LexerParser/Parser2Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
+            <state relative-caret-position="2970">
               <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -43,19 +59,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonSymbol.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LexerParser/JsonSymbol.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="JObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LexerParser/JObject.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="JArray.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LexerParser/JArray.java">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="TestLexer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/LexerParser/TestLexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="JString.java" pinned="false" current-in-tab="false">
@@ -93,6 +103,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>parse</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -102,7 +117,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/HTTP/PostRequester.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/BasicParser.java" />
-        <option value="$PROJECT_DIR$/src/Main/MainClass.java" />
         <option value="$PROJECT_DIR$/outputFile.txt" />
         <option value="$PROJECT_DIR$/src/JSONParser/Operation.java" />
         <option value="$PROJECT_DIR$/src/Operations/OperationClass.java" />
@@ -114,7 +128,6 @@
         <option value="$PROJECT_DIR$/src/JSONParser/JString.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/JArray.java" />
         <option value="$PROJECT_DIR$/test/JSONParser/ThirdParser.java" />
-        <option value="$PROJECT_DIR$/src/Main/RequestAndExecuteTasks.java" />
         <option value="$PROJECT_DIR$/src/HTTP/GetRequester.java" />
         <option value="$PROJECT_DIR$/test/JSONParser/ThirdParserTest.java" />
         <option value="$PROJECT_DIR$/src/JSONParser/JObject.java" />
@@ -133,6 +146,9 @@
         <option value="$PROJECT_DIR$/src/LexerParser/PushbackLexer.java" />
         <option value="$PROJECT_DIR$/src/LexerParser/Type.java" />
         <option value="$PROJECT_DIR$/test/LexerParser/Parser2Test.java" />
+        <option value="$PROJECT_DIR$/test/LexerParser/TestLexer.java" />
+        <option value="$PROJECT_DIR$/src/Main/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/Main/RequestAndExecuteTasks.java" />
       </list>
     </option>
   </component>
@@ -173,36 +189,7 @@
               <item name="JSONAssignment" type="b2602c69:ProjectViewProjectNode" />
               <item name="JSONAssignment" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="HTTP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JSONAssignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JSONAssignment" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="JSONParser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JSONAssignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JSONAssignment" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="LexerParser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JSONAssignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JSONAssignment" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JSONAssignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JSONAssignment" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JSONAssignment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JSONAssignment" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="LexerParser" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -257,7 +244,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in JSONAssignment">
+  <component name="RunManager" selected="Application.MainClass">
     <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.MainClass" />
       <module name="JSONAssignment" />
@@ -405,8 +392,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in JSONAssignment" />
         <item itemvalue="Application.MainClass" />
+        <item itemvalue="JUnit.All in JSONAssignment" />
         <item itemvalue="JUnit.TestLexer" />
         <item itemvalue="JUnit.Parser2Test" />
         <item itemvalue="JUnit.ThirdParserTest" />
@@ -472,15 +459,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ThirdParserTest - 2018.11.26 at 22h 40m 49s.xml">
-      <configuration name="ThirdParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 22h 43m 58s.xml">
-      <configuration name="ThirdParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ThirdParserTest - 2018.11.26 at 22h 49m 48s.xml">
-      <configuration name="ThirdParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ThirdParserTest - 2018.11.27 at 19h 07m 49s.xml">
       <configuration name="ThirdParserTest" configurationId="JUnit" />
     </history-entry>
@@ -502,6 +480,15 @@
     <history-entry file="ThirdParserTest - 2018.12.04 at 10h 53m 43s.xml">
       <configuration name="ThirdParserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Parser2Test - 2018.12.04 at 10h 57m 28s.xml">
+      <configuration name="Parser2Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestLexer - 2018.12.04 at 10h 57m 44s.xml">
+      <configuration name="TestLexer" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_JSONAssignment - 2018.12.04 at 10h 58m 47s.xml">
+      <configuration name="All in JSONAssignment" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="6279000" />
@@ -518,12 +505,12 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" weight="0.38058037" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.41452992" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.41452992" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32879046" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29211086" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29211086" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info id="Learn" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -643,7 +630,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/JSONParser/GSONParser.java" />
     <entry file="file://$PROJECT_DIR$/src/JSONParser/SecondParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -698,13 +684,6 @@
     <entry file="jar://$USER_HOME$/.ideaLibSources/gson-2.8.5-sources.jar!/com/google/gson/JsonObject.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/DataOutputStream.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/Writer.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/gson-2.8.5.jar!/com/google/gson/JsonParser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HTTP/PostRequester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -789,16 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/RequestAndExecuteTasks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JSONParser/OldJString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -840,13 +809,6 @@
             <element signature="e#295#296#0" expanded="true" />
             <element signature="e#329#330#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -904,8 +866,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/LexerParser/Parser2Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="2970">
           <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/LexerParser/TestLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gson-2.8.5.jar!/com/google/gson/JsonParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/RequestAndExecuteTasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
