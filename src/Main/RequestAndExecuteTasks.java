@@ -3,6 +3,10 @@ package Main;
 import HTTP.GetRequester;
 import HTTP.PostRequester;
 import JSONParser.GSONParser;
+import LexerParser.JArray;
+import LexerParser.JObject;
+import LexerParser.JToken;
+import LexerParser.Parser2;
 import Operations.OperationClass;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -12,6 +16,8 @@ import com.google.gson.JsonParser;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 //TODo this class should just delegate to other public method classes to tell us what to do.
 public class RequestAndExecuteTasks {
@@ -29,11 +35,11 @@ private FileWriter fileWriter;
 
     // TODO Wrap send request in exception and then pass that on if it happens?
     //This requests and returns the list of tasks we need.
-    public JsonObject sendRequestToRetrieveListOfTasks() throws IOException {
+    public JToken sendRequestToRetrieveListOfTasks() throws IOException {
         String taskURLS = new GetRequester().sendGetRequest("/student?id=s195206");
         fileWriter.write(taskURLS + "\n");
 
-        JsonObject jsonObject = new JsonParser().parse(taskURLS).getAsJsonObject();
+        JToken jsonObject = new Parser2().parse(taskURLS);
         System.out.println();
 
         //Note this is the entire response, it has not filtered out the tasks yet.
@@ -41,20 +47,20 @@ private FileWriter fileWriter;
     }
 
 
-    public void processTasks(JsonObject tasksJsonResponse) throws IOException {
+    public void processTasks(JToken tasksJsonResponse) throws IOException {
         // Extract the taskURLS from the JSONArray.
-        JsonArray taskURLArray = tasksJsonResponse.get("tasks").getAsJsonArray();
+        List<JToken> taskURLArray = tasksJsonResponse.getAsMap().get("tasks").getAsArray();
 
         // Loop through all URLS.
-        for (JsonElement element : taskURLArray) {
+        for (JToken element : taskURLArray) {
             try {
                 //TODO again maybe wrap this individual bit.
                 String task = retrieveIndividualTaskDetails(element);
 
                 //TODO then wrap the unparsing bit?
-                JsonObject individualTask = new JsonParser().parse(task).getAsJsonObject();
+                Map<String, JToken> individualTask = new Parser2().parse(task).getAsMap();
                 String taskInstruction = individualTask.get("instruction").getAsString();
-                JsonArray parameters = individualTask.getAsJsonArray("parameters");
+                List<JToken> parameters = individualTask.get("parameters").getAsArray();
                 String postUrl = individualTask.get("response URL").getAsString();
 
                 String answerToPost = new OperationClass().doOperation(taskInstruction, parameters);
@@ -81,7 +87,7 @@ private FileWriter fileWriter;
         System.out.println();
     }
 
-    private String retrieveIndividualTaskDetails(JsonElement element) throws IOException {
+    private String retrieveIndividualTaskDetails(JToken element) throws IOException {
         String taskURL = element.getAsString();
         String task = new GetRequester().sendGetRequest(taskURL);
         fileWriter.write(task + "\n");

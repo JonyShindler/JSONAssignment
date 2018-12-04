@@ -1,11 +1,14 @@
 package Operations;
 
+import LexerParser.JToken;
 import com.google.gson.JsonArray;
+
+import java.util.List;
 
 public class OperationClass {
 
     //TODO this should be its own class method
-    public String doOperation(String taskInstruction, JsonArray parameters) {
+    public String doOperation(String taskInstruction, List<JToken> parameters) {
         int parameter1 = Integer.parseInt(parameters.get(0).getAsString());
         int parameter2 = Integer.parseInt(parameters.get(1).getAsString());
 

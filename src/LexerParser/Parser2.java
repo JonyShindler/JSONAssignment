@@ -1,12 +1,12 @@
 package LexerParser;
 
 import java.io.IOException;
-import java.io.Reader;
+import java.io.StringReader;
 
-class Parser2 {
+public class Parser2 {
 
-	JToken parse(Reader in) throws IOException {
-		PushbackLexer lex = new PushbackLexer(new LexerParser(in));
+	public JToken parse(String string) throws IOException {
+		PushbackLexer lex = new PushbackLexer(new LexerParser(new StringReader(string)));
 		JsonSymbol s = lex.next();
 
 		if (null == s) return new JString("");

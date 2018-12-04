@@ -11,6 +11,11 @@ public class JString extends JToken {
     }
 
     @Override
+    public String getAsString() {
+        return string;
+    }
+
+    @Override
     public String toString() {
         return string;
     }

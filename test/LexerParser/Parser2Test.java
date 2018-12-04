@@ -101,7 +101,7 @@ public class Parser2Test {
 
     private JToken parseJsonAndAssertOutput(String json) throws IOException {
         Parser2 parser = new Parser2();
-        JToken token = parser.parse(new StringReader(json));
+        JToken token = parser.parse(json);
         System.out.println(token);
         assertEquals(json, token.toString());
         return token;

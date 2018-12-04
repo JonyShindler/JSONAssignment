@@ -11,4 +11,8 @@ public abstract class JToken {
     public Map<String, JToken> getAsMap(){
         throw new UnsupportedOperationException();
     }
+
+    public String getAsString(){
+        throw new UnsupportedOperationException();
+    }
 }
