@@ -2,35 +2,35 @@ package LexerParser;
 
 import java.util.Objects;
 
-public class JString extends JToken {
+public class JNumber extends JToken {
 
-    private final String string;
+    private final Number number;
 
-    public JString(String string) {
-        this.string = string;
+    public JNumber(String number) {
+        this.number = Integer.valueOf(number);
     }
 
     @Override
     public String getAsString() {
-        return string;
+        return number.toString();
     }
 
     @Override
     public String toString() {
-        return "\"" + string + "\"";
+        return number.toString();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JString jString = (JString) o;
-        return Objects.equals(string, jString.string);
+        JNumber jNumber = (JNumber) o;
+        return Objects.equals(number, jNumber.number);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(string);
+        return Objects.hash(number);
     }
 }

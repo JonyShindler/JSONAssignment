@@ -1,5 +1,7 @@
 package LexerParser;
 
+import com.sun.deploy.security.ValidationState;
+
 import java.io.IOException;
 import java.io.StringReader;
 
@@ -36,6 +38,14 @@ public class Parser2 {
 					throw new IOException("Expected comma after value");
 				}
 
+			} else if (s.type == Type.NUMBER) {
+				if (lastWasComma) {
+					array.addToList(new JNumber(s.value));
+					lastWasComma = false;
+				} else {
+					throw new IOException("Expected comma after value");
+				}
+
 			} else if (s.type == Type.OPEN_OBJECT) {
 				if (!lastWasComma) {
 					throw new IOException("Expected comma after value");
@@ -54,6 +64,9 @@ public class Parser2 {
 
 			} else if (s.type == Type.CLOSE_ARRAY) {
 				return array;
+
+			} else if (s.type == Type.SPACE) {
+				//do nothing
 
 			} else {
 				throw new IOException("Expected something...");
@@ -98,19 +111,26 @@ public class Parser2 {
 				//Do nothing else
 				continue;
 				//Otherwise we must be a string.
+
 				//TODO check its a string etc.
 
 			} else if (lastType == Type.COMMA) {
-				//just change a boolean flag for now maybe?;
 				lastType = Type.COMMA;
 				//add the key.
+				if (s.type != Type.STRING) {
+					throw new IOException("Each key must be a string after a comma in an object");
+				}
 				object.addKey(s.value);
 
 			} else if (lastType == Type.COLON) {
-				//TODO go figure out the type of the JToken and add it to the values.
-				//for now lets pretend theyre always strings.
 				lastType = Type.COLON;
-				object.addValue(new JString(s.value));
+				if (s.type == Type.STRING) {
+					object.addValue(new JString(s.value));
+				} else if (s.type == Type.NUMBER) {
+					object.addValue(new JNumber(s.value));
+				}
+			} else if (s.type == Type.SPACE) {
+				//do nothing
 			}
 
 			//TODO throw exception here cos we should have existed the object here and
@@ -121,6 +141,10 @@ public class Parser2 {
 
 	// This method reads the next symbols and returns a text based document.
 	//TODO use this method to create the JStrings for us?
+
+
+	// Perhaps we should call this when we see any string come up? it handles spaces,
+	// we kinda want to ignore spaces I think.. not sure.
 	private String text(PushbackLexer lex) throws IOException {
 		StringBuilder ret = new StringBuilder();
 		sym: for (JsonSymbol symbol = lex.next(); symbol != null; symbol = lex.next()) {

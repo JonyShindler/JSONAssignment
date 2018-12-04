@@ -26,27 +26,44 @@ public class LexerParser {
 					while (Character.isWhitespace(c)) { // eat extra whitespace
 						c = reader.read();
 					}
-					if (noCharactersRemain(c)) reader.unread(c);
+					if (charactersRemain(c)) reader.unread(c);
 					return new JsonSymbol(Type.SPACE, " ");
 				}
-				//TODO here we need to include something that will include "" in a string.
 
-				if (Character.isLetterOrDigit(c)) {
+				// Numbers
+				if (Character.isDigit(c)) {
 					StringBuffer value = new StringBuffer();
-					while (Character.isLetterOrDigit(c)) { // collect extra digits
+					while (Character.isDigit(c)) { // collect extra digits
 						value.append((char)c);
 						c = reader.read();
 					}
-					if (noCharactersRemain(c)) reader.unread(c);
-					return new JsonSymbol(Type.STRING, value.toString());
+					if (charactersRemain(c)) reader.unread(c);
+					return new JsonSymbol(Type.NUMBER, value.toString());
 				}
 
+				// Strings
+				if ('"' == c) {
+					c = reader.read();
+					if (Character.isLetterOrDigit(c) || c == '/') {
+						StringBuffer value = new StringBuffer();
+						while (Character.isLetterOrDigit(c) || c == '/' || c == ' ') { // collect extra digits
+							value.append((char)c);
+							c = reader.read();
+							if ('"' == c) {
+								break;
+							}
+						}
+						return new JsonSymbol(Type.STRING, value.toString());
+					}
+				}
+
+				//TODO we are gonna have to process spaces as well!
 				StringBuffer value = new StringBuffer();
-				while ((noCharactersRemain(c) && isNotBracket(c) && !Character.isWhitespace(c) && !Character.isLetterOrDigit(c)) ) { // collect extra digits
+				while ((charactersRemain(c) && isNotBracket(c) && !Character.isWhitespace(c) && !Character.isLetterOrDigit(c)) ) { // collect extra digits
 					value.append((char)c);
 					c = reader.read();
 				}
-				if (noCharactersRemain(c)) reader.unread(c);
+				if (charactersRemain(c)) reader.unread(c);
 				return new JsonSymbol(Type.OTHER, value.toString());
 			}
 
@@ -57,7 +74,7 @@ public class LexerParser {
 				&& ']' != c;
 	}
 
-	private boolean noCharactersRemain(int c) {
+	private boolean charactersRemain(int c) {
 		return -1 != c;
 	}
 

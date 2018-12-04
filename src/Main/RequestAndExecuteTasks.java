@@ -58,6 +58,7 @@ private FileWriter fileWriter;
                 String task = retrieveIndividualTaskDetails(element);
 
                 //TODO then wrap the unparsing bit?
+                //TODO we couldnt parse the task object for some reason.
                 Map<String, JToken> individualTask = new Parser2().parse(task).getAsMap();
                 String taskInstruction = individualTask.get("instruction").getAsString();
                 List<JToken> parameters = individualTask.get("parameters").getAsArray();

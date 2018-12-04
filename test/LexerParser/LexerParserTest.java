@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 
-public class TestLexer {
+public class LexerParserTest {
 	@Test
 	public void testEmpty() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader(""));
@@ -18,7 +18,7 @@ public class TestLexer {
 	}
 	@Test
 	public void testWord() throws IOException {
-		LexerParser lex = new LexerParser(new StringReader("hello"));
+		LexerParser lex = new LexerParser(new StringReader("\"hello\""));
 		assertNextSymbol(lex, Type.STRING, "hello");
 		assertNull(lex.next());
 	}
@@ -44,14 +44,14 @@ public class TestLexer {
 	}
 
 	@Test
-	public void testSingleSlash() throws IOException {
+	public void testSingleComma() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader(","));
 		assertNextSymbol(lex, Type.COMMA);
 	}
 
 	@Test
 	public void testCombination() throws IOException {
-		LexerParser lex = new LexerParser(new StringReader("{ugh}"));
+		LexerParser lex = new LexerParser(new StringReader("{\"ugh\"}"));
 		assertNextSymbol (lex, Type.OPEN_OBJECT);
 		assertNextSymbol (lex, Type.STRING, "ugh");
 		assertNextSymbol (lex, Type.CLOSE_OBJECT);
@@ -65,12 +65,52 @@ public class TestLexer {
 		assertNull(lex.next());
 	}
 
+	@Test
+	public void testQuotes() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("\"a\""));
+		assertNextSymbol(lex, Type.STRING, "a");
+		assertNull(lex.next());
+	}
+
+	@Test
+	public void testQuotesWithForwardSlach() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("\"/a\""));
+		assertNextSymbol(lex, Type.STRING, "/a");
+		assertNull(lex.next());
+	}
+
+	@Test
+	public void testNumbers() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("1000"));
+		assertNextSymbol(lex, Type.NUMBER, "1000");
+		assertNull(lex.next());
+	}
+
+	@Test
+	public void testStringWithSpace() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("\"hi bob\""));
+		assertNextSymbol(lex, Type.STRING, "hi bob");
+		assertNull(lex.next());
+	}
+
+	//TODO cannot handle spaces!
+	@Test
+	public void testArrayOfNumbers() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("[1000, 2345]"));
+		assertNextSymbol(lex, Type.OPEN_ARRAY);
+		assertNextSymbol(lex, Type.NUMBER, "1000");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.SPACE);
+		assertNextSymbol(lex, Type.NUMBER, "2345");
+		assertNextSymbol(lex, Type.CLOSE_ARRAY);
+		assertNull(lex.next());
+	}
+
 
 	private void assertNextSymbol(LexerParser lex, Type type, String value) throws IOException {
 		JsonSymbol symbol = lex.next();
 		assertEquals(type, symbol.type);
 		if (null != value) assertEquals(value, symbol.value);
-
 	}
 
 	private void assertNextSymbol(LexerParser lex, Type type) throws IOException {

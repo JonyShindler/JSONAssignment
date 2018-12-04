@@ -30,15 +30,24 @@ public class JObject extends JToken {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append('{');
+        if (keys.size() ==0) {
+            return "{}";
+        } else {
+
+            //TODO this needs to oonly add the value if it exists.
         for (int i=0; i<keys.size();i++) {
 
             if (i !=0) {
                 stringBuffer.append(',');
             }
-            stringBuffer.append(keys.get(i) + ":" + values.get(i));
+            stringBuffer.append("\"" + keys.get(i) + "\"");
+            if (values.size() > i) {
+                stringBuffer.append(":" + values.get(i));
+            }
         }
         stringBuffer.append('}');
         return stringBuffer.toString();
+        }
     }
 
 
