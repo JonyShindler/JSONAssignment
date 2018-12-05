@@ -18,7 +18,6 @@ public class PostRequester {
 
         //add request header
         con.setRequestMethod("POST");
-        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
         // Send post request
         con.setDoOutput(true);
@@ -28,7 +27,7 @@ public class PostRequester {
         wr.close();
 
         int responseCode = con.getResponseCode();
-        System.out.println("Sending 'POST' request to URL : " + url + " with parameters " + urlParameters + " returned response code " + responseCode);
+        System.out.println("Sending 'POST' request to URL : " + finalUrl + ", with parameters " + urlParameters + ", returned response code " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
