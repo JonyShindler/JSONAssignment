@@ -26,6 +26,14 @@ public class JObject extends JToken {
     public JObject() {
     }
 
+    public JToken get(String key){
+        return map.get(key);
+    }
+
+    public Map<String, JToken> getMap(){
+        return map;
+    }
+
     @Override
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
@@ -83,8 +91,8 @@ public class JObject extends JToken {
     }
 
     @Override
-    public Map<String, JToken> getAsMap(){
-        return map;
+    public JObject getAsObject(){
+        return this;
     }
 
 

@@ -2,22 +2,15 @@ package Main;
 
 import HTTP.GetRequester;
 import HTTP.PostRequester;
-import JSONParser.GSONParser;
-import LexerParser.JArray;
 import LexerParser.JObject;
 import LexerParser.JToken;
 import LexerParser.Parser2;
 import Operations.OperationClass;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
 //TODo this class should just delegate to other public method classes to tell us what to do.
 public class RequestAndExecuteTasks {
@@ -49,7 +42,7 @@ private FileWriter fileWriter;
 
     public void processTasks(JToken tasksJsonResponse) throws IOException {
         // Extract the taskURLS from the JSONArray.
-        List<JToken> taskURLArray = tasksJsonResponse.getAsMap().get("tasks").getAsArray();
+        List<JToken> taskURLArray = tasksJsonResponse.getAsObject().get("tasks").getAsArray().getTokens();
 
         // Loop through all URLS.
         for (JToken element : taskURLArray) {
@@ -59,10 +52,10 @@ private FileWriter fileWriter;
 
                 //TODO then wrap the unparsing bit?
                 //TODO this bit throws the exception.
-                Map<String, JToken> individualTask = new Parser2().parse(task).getAsMap();
-                String taskInstruction = individualTask.get("instruction").getAsString();
-                List<JToken> parameters = individualTask.get("parameters").getAsArray();
-                String postUrl = individualTask.get("response URL").getAsString();
+                JObject individualTask = new Parser2().parse(task).getAsObject();
+                String taskInstruction = individualTask.get("instruction").getAsString().getString();
+                List<JToken> parameters = individualTask.get("parameters").getAsArray().getTokens();
+                String postUrl = individualTask.get("response URL").getAsString().getString();
 
                 String answerToPost = new OperationClass().doOperation(taskInstruction, parameters);
                 sendTaskResponse(postUrl, answerToPost);
@@ -70,7 +63,7 @@ private FileWriter fileWriter;
             } catch (IllegalStateException e) {
                 System.out.println(e.getMessage());
             } catch (IOException e) {
-                sendTaskResponse(element.getAsString(), "Not valid JSON");
+                sendTaskResponse(element.getAsString().getString(), "Not valid JSON");
              }
 //TODO write each JSON document and response we sent back to a file.
         }
@@ -88,7 +81,7 @@ private FileWriter fileWriter;
     }
 
     private String retrieveIndividualTaskDetails(JToken element) throws IOException {
-        String taskURL = element.getAsString();
+        String taskURL = element.getAsString().getString();
         String task = new GetRequester().sendGetRequest(taskURL);
         fileWriter.write(task + "\n");
         return task;

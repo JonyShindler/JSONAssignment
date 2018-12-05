@@ -1,22 +1,28 @@
 package LexerParser;
 
+import jdk.nashorn.internal.scripts.JO;
+
 import java.util.List;
 import java.util.Map;
 
 public abstract class JToken {
-    public List<JToken> getAsArray(){
+    public JArray getAsArray(){
         throw new UnsupportedOperationException();
     }
 
-    public Map<String, JToken> getAsMap(){
+    public JObject getAsObject(){
         throw new UnsupportedOperationException();
     }
 
-    public String getAsString(){
+    public JString getAsString(){
         throw new UnsupportedOperationException();
     }
 
-    public Number getAsNumber(){
+    public JNumber getAsNumber(){
+        throw new UnsupportedOperationException();
+    }
+
+    public String convertToString(){
         throw new UnsupportedOperationException();
     }
 }

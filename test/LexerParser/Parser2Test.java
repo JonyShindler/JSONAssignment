@@ -16,7 +16,7 @@ public class Parser2Test {
     public void testObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\"}");
         Map<String, JToken> expectedMap = new ExpectedMapBuilder().addNode("a", new JString("b")).buildMap();
-        assertEquals(expectedMap, jToken.getAsMap());
+        assertEquals(expectedMap, jToken.getAsObject());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class Parser2Test {
                         .addNode("c", new JString("d"))
                         .addNode("e", new JString("f"))
                         .buildMap();
-        Map<String, JToken> asMap = jToken.getAsMap();
+        Map<String, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedMap, asMap);
         assertEquals(asMap.get("c"), new JString("d"));
     }
@@ -43,7 +43,7 @@ public class Parser2Test {
                         .addNode("a", jArray)
                         .addNode("numbers", new JNumber("2"))
                         .buildMap();
-        Map<String, JToken> asMap = jToken.getAsMap();
+        Map<String, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedMap, asMap);
         assertEquals(asMap.get("a"), jArray);
     }
@@ -84,12 +84,12 @@ public class Parser2Test {
                         .addNode("parent", abArray)
                         .addNode("child", new JString("me"))
                         .buildMap();
-        Map<String, JToken> asMap = jToken.getAsMap();
+        Map<String, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedParentMap, asMap);
         assertEquals(asMap.get("parent"), abArray);
         assertEquals(new JString("b"), abArray.getAsArray().get(1));
         assertEquals(cdeObject, abArray.getAsArray().get(2));
-        assertEquals(xyzArray, abArray.getAsArray().get(2).getAsMap().get("e"));
+        assertEquals(xyzArray, abArray.getAsArray().get(2).getAsObject().get("e"));
     }
 
     @Test

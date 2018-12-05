@@ -4,21 +4,25 @@ import java.util.Objects;
 
 public class JNumber extends JToken {
 
-    private final Number number;
+    private final Integer number;
 
     public JNumber(String number) {
         this.number = Integer.valueOf(number);
     }
 
+
     @Override
-    public String getAsString() {
-        return number.toString();
+    public JNumber getAsNumber() {
+        return this;
     }
 
+    public Integer getInteger(){
+        return number;
+    }
 
     @Override
-    public Number getAsNumber() {
-        return number;
+    public String convertToString() {
+        return number.toString();
     }
 
     @Override

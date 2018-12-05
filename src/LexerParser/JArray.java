@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class JArray extends JToken {
 
-    private List<JToken> tokens = new ArrayList<>();
+    private List<JToken> tokens;
 
     public JArray addToList(JToken jtoken) {
         tokens.add(jtoken);
@@ -21,9 +21,17 @@ public class JArray extends JToken {
         this.tokens = tokens;
     }
 
-    @Override
-    public List<JToken> getAsArray() {
+    public List<JToken> getTokens(){
         return tokens;
+    }
+
+    @Override
+    public JArray getAsArray() {
+        return this;
+    }
+
+    public JToken get(int i){
+        return tokens.get(i);
     }
 
     @Override

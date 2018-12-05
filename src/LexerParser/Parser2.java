@@ -110,10 +110,8 @@ public class Parser2 {
 				lastType = Type.COLON;
 				//Do nothing else
 				continue;
+
 				//Otherwise we must be a string.
-
-				//TODO check its a string etc.
-
 			} else if (lastType == Type.COMMA) {
 				lastType = Type.COMMA;
 				//add the key.
