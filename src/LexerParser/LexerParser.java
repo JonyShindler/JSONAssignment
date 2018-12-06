@@ -16,33 +16,36 @@ public class LexerParser {
 			public JsonSymbol next() throws IOException {
 				int c = reader.read();
 				if (-1 == c) return null; // no more symbols
-				if ('{' == c) return new JsonSymbol(Type.OPEN_OBJECT, "{");
-				if ('}' == c) return new JsonSymbol(Type.CLOSE_OBJECT, "}");
-				if (',' == c) return new JsonSymbol(Type.COMMA, ",");
-				if (':' == c) return new JsonSymbol(Type.COLON, ":");
-				if ('[' == c) return new JsonSymbol(Type.OPEN_ARRAY, "[");
-				if (']' == c) return new JsonSymbol(Type.CLOSE_ARRAY, "]");
-				if (Character.isWhitespace(c)) {
+				else if ('{' == c) return new JsonSymbol(Type.OPEN_OBJECT, "{");
+				else if ('}' == c) return new JsonSymbol(Type.CLOSE_OBJECT, "}");
+				else if (',' == c) return new JsonSymbol(Type.COMMA, ",");
+				else if (':' == c) return new JsonSymbol(Type.COLON, ":");
+				else if ('[' == c) return new JsonSymbol(Type.OPEN_ARRAY, "[");
+				else if (']' == c) return new JsonSymbol(Type.CLOSE_ARRAY, "]");
+				else if (Character.isWhitespace(c)) {
 					while (Character.isWhitespace(c)) { // eat extra whitespace
 						c = reader.read();
 					}
 					if (charactersRemain(c)) reader.unread(c);
 					return new JsonSymbol(Type.SPACE, " ");
+					//TODO i dont care about spaces for now.
 				}
 
 				// Numbers
-				if (Character.isDigit(c)) {
+				else if (Character.isDigit(c)) {
 					StringBuffer value = new StringBuffer();
 					while (Character.isDigit(c)) { // collect extra digits
 						value.append((char)c);
 						c = reader.read();
 					}
 					if (charactersRemain(c)) reader.unread(c);
-					return new JsonSymbol(Type.NUMBER, value.toString());
+					return new JsonSymbol(Type.STRING, value.toString());
 				}
 
+
+				//TODO this needs to be able to read null, true, false etc. so maybe have another one that checks for these?
 				// Strings
-				if ('"' == c) {
+				else if ('"' == c) {
 					c = reader.read();
 					if (Character.isLetterOrDigit(c) || c == '/') {
 						StringBuffer value = new StringBuffer();
@@ -57,14 +60,31 @@ public class LexerParser {
 					}
 				}
 
-				//TODO we are gonna have to process spaces as well!
-				StringBuffer value = new StringBuffer();
-				while ((charactersRemain(c) && isNotBracket(c) && !Character.isWhitespace(c) && !Character.isLetterOrDigit(c)) ) { // collect extra digits
-					value.append((char)c);
-					c = reader.read();
+				//Null/True/False
+				else if (Character.isLetter(c)) {
+						StringBuffer value = new StringBuffer();
+						while (Character.isLetter(c)) { // collect extra digits
+							value.append((char)c);
+							c = reader.read();
+						}
+					if (charactersRemain(c)) reader.unread(c);
+					return new JsonSymbol(Type.STRING, value.toString());
 				}
-				if (charactersRemain(c)) reader.unread(c);
-				return new JsonSymbol(Type.OTHER, value.toString());
+
+
+				else
+				{
+					//TODO we are gonna have to process spaces as well!
+					StringBuffer value = new StringBuffer();
+					while ((charactersRemain(c) && isNotBracket(c) && !Character.isWhitespace(c) && !Character.isLetterOrDigit(c)))
+					{ // collect extra digits
+						value.append((char)c);
+						c = reader.read();
+					}
+					if (charactersRemain(c)) reader.unread(c);
+					return new JsonSymbol(Type.OTHER, value.toString());
+				}
+				return null;
 			}
 
 	private boolean isNotBracket(int c) {

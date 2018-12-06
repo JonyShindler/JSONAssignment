@@ -2,14 +2,12 @@ package LexerParser;
 
 import java.util.Objects;
 
-public class JNumber extends JToken {
+public class JNumber extends JString {
 
-    private final Integer number;
-
-    public JNumber(String number) {
-        this.number = Integer.valueOf(number);
+    public JNumber(String string)
+    {
+        super(string);
     }
-
 
     @Override
     public JNumber getAsNumber() {
@@ -17,17 +15,12 @@ public class JNumber extends JToken {
     }
 
     public Integer getInteger(){
-        return number;
-    }
-
-    @Override
-    public String convertToString() {
-        return number.toString();
+        return Integer.parseInt(string);
     }
 
     @Override
     public String toString() {
-        return number.toString();
+        return string;
     }
 
     @Override
@@ -35,12 +28,12 @@ public class JNumber extends JToken {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         JNumber jNumber = (JNumber) o;
-        return Objects.equals(number, jNumber.number);
+        return Objects.equals(string, jNumber.string);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(number);
+        return Objects.hash(string);
     }
 }

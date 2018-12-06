@@ -9,7 +9,7 @@ public class Parser2 {
 		PushbackLexer lex = new PushbackLexer(new LexerParser(new StringReader(string)));
 		JsonSymbol s = lex.next();
 
-		if (null == s) return new JString("");
+		if (null == s) {return JStringBuilder.createJString("");}
 
 		JToken jToken;
 		Type symbolType = s.type;
@@ -32,15 +32,7 @@ public class Parser2 {
 			JsonSymbol s = lex.next();
 			if (s.type == Type.STRING) {
 				if (lastWasComma) {
-					array.addToList(new JString(s.value));
-					lastWasComma = false;
-				} else {
-					throw new IOException("Expected comma after value");
-				}
-
-			} else if (s.type == Type.NUMBER) {
-				if (lastWasComma) {
-					array.addToList(new JNumber(s.value));
+					array.addToList(JStringBuilder.createJString(s.value));
 					lastWasComma = false;
 				} else {
 					throw new IOException("Expected comma after value");
@@ -123,9 +115,7 @@ public class Parser2 {
 			} else if (lastType == Type.COLON) {
 				lastType = Type.COLON;
 				if (s.type == Type.STRING) {
-					object.addValue(new JString(s.value));
-				} else if (s.type == Type.NUMBER) {
-					object.addValue(new JNumber(s.value));
+					object.addValue(JStringBuilder.createJString(s.value));
 				}
 			} else if (s.type == Type.SPACE) {
 				//do nothing

@@ -63,8 +63,9 @@ private FileWriter fileWriter;
             } catch (IllegalStateException e) {
                 System.out.println(e.getMessage());
             } catch (IOException e) {
-                sendTaskResponse(element.getAsString().getString(), "Not valid JSON");
-             }
+                // sendTaskResponse(element.getAsString().getString(), "Not valid JSON");
+                System.out.println(e.getMessage());
+            }
 //TODO write each JSON document and response we sent back to a file.
         }
 
@@ -92,10 +93,10 @@ private FileWriter fileWriter;
         String filePathWorkPc = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
         String filePathDesktop = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
         String filePathLaptop = "/home/jony/git/JSONAssignment/outputFile.txt";
-        PrintWriter pw = new PrintWriter(filePathDesktop );
+        PrintWriter pw = new PrintWriter(filePathWorkPc);
         pw.close();
 
-        return new FileWriter(filePathDesktop);
+        return new FileWriter(filePathWorkPc);
     }
 
 }

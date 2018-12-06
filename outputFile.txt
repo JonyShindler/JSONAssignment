@@ -1,0 +1,19 @@
+{"id":"s195206","tasks":["/task/3070","/task/5105","/task/5586","/task/5590","/task/8423","/task/5473","/task/6528","/task/3383","/task/8386","/task/8016"]}
+{"instruction":"add","parameters":[3979,1990],"response URL":"/answer/3070"}
+5969
+{"instruction":"multiply","parameters":[6065,7847],"response URL":"/answer/5105"}
+47592055
+{"instruction":"concat","parameters":["198","2327"],"response URL":"/answer/5586"}
+1982327
+{"instruction":"add","parameters":[7534,"9779"],"response URL":"/answer/5590"}
+17313
+{"instruction":"add","parameters":["4788",1835],"response URL":"/answer/8423"}
+6623
+{"instruction":"multiply","parameters":["8215","8192"],"response URL":"/answer/5473"}
+67297280
+{"instruction":"concat","parameters":[5012,"2471"],"response URL":"/answer/6528"}
+50122471
+{"instruction":"concat","parameters":["2207",9785],"response URL":"/answer/3383"}
+22079785
+{"instruction":"subtract","parameters":[4487,7579],"response URL":"/answer/8386"}
+"add up the two numbers 9425 and 3430"

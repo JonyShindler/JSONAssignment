@@ -7,6 +7,7 @@ import java.util.List;
 public class OperationClass {
 
     public String doOperation(String taskInstruction, List<JToken> parameters) {
+        //TODO here we should check that these are strings.
         int parameter1 = Integer.parseInt(parameters.get(0).convertToString());
         int parameter2 = Integer.parseInt(parameters.get(1).convertToString());
 

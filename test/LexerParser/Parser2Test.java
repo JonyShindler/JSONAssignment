@@ -16,7 +16,7 @@ public class Parser2Test {
     public void testObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\"}");
         Map<String, JToken> expectedMap = new ExpectedMapBuilder().addNode("a", new JString("b")).buildMap();
-        assertEquals(expectedMap, jToken.getAsObject());
+        assertEquals(expectedMap, jToken.getAsObject().getMap());
     }
 
     @Test
@@ -61,6 +61,11 @@ public class Parser2Test {
     @Test
     public void testArrayInArray () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",[\"c\",\"d\"]]}");
+    }
+
+    @Test
+    public void testTrueInArray () throws IOException {
+        JToken jToken = parseJsonAndAssertOutput("[true, false]", "[true,false]");
     }
 
     @Test
@@ -111,14 +116,15 @@ public class Parser2Test {
 
 
     private JToken parseJsonAndAssertOutput(String json) throws IOException {
-        Parser2 parser = new Parser2();
-        JToken token = parser.parse(json);
-        System.out.println(token);
-        assertEquals(json, token.toString());
-        return token;
+        return getAndAssertJToken(json, json);
     }
 
     private JToken parseJsonAndAssertOutput(String json, String expectedToString) throws IOException {
+        return getAndAssertJToken(json, expectedToString);
+    }
+
+    private JToken getAndAssertJToken(String json, String expectedToString) throws IOException
+    {
         Parser2 parser = new Parser2();
         JToken token = parser.parse(json);
         System.out.println(token);

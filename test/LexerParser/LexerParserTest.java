@@ -24,9 +24,13 @@ public class LexerParserTest {
 	}
 
 	@Test
-	public void testSpace() throws IOException {
-		LexerParser lex = new LexerParser(new StringReader(" "));
-		assertNextSymbol(lex, Type.SPACE);
+	public void testTrueAndFalseInArray() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("[true,false]"));
+		assertNextSymbol(lex, Type.OPEN_ARRAY);
+		assertNextSymbol(lex, Type.STRING, "true");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.STRING, "false");
+		assertNextSymbol(lex, Type.CLOSE_ARRAY);
 		assertNull(lex.next());
 	}
 
@@ -82,7 +86,7 @@ public class LexerParserTest {
 	@Test
 	public void testNumbers() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("1000"));
-		assertNextSymbol(lex, Type.NUMBER, "1000");
+		assertNextSymbol(lex, Type.STRING, "1000");
 		assertNull(lex.next());
 	}
 
@@ -95,17 +99,27 @@ public class LexerParserTest {
 
 	//TODO cannot handle spaces!
 	@Test
-	public void testArrayOfNumbers() throws IOException {
+	public void testArrayOfNumbersWithSpace() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("[1000, 2345]"));
 		assertNextSymbol(lex, Type.OPEN_ARRAY);
-		assertNextSymbol(lex, Type.NUMBER, "1000");
+		assertNextSymbol(lex, Type.STRING, "1000");
 		assertNextSymbol(lex, Type.COMMA);
 		assertNextSymbol(lex, Type.SPACE);
-		assertNextSymbol(lex, Type.NUMBER, "2345");
+		assertNextSymbol(lex, Type.STRING, "2345");
 		assertNextSymbol(lex, Type.CLOSE_ARRAY);
 		assertNull(lex.next());
 	}
 
+	@Test
+	public void testArrayOfNumbersWithOutSpace() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("[1000,2345]"));
+		assertNextSymbol(lex, Type.OPEN_ARRAY);
+		assertNextSymbol(lex, Type.STRING, "1000");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.STRING, "2345");
+		assertNextSymbol(lex, Type.CLOSE_ARRAY);
+		assertNull(lex.next());
+	}
 
 	private void assertNextSymbol(LexerParser lex, Type type, String value) throws IOException {
 		JsonSymbol symbol = lex.next();

@@ -4,11 +4,20 @@ import java.util.Objects;
 
 public class JString extends JToken {
 
-    private final String string;
+    final String string;
 
+    //TODO this constructor should decide which object to make? or make a builder that can decide that.
     public JString(String string) {
         this.string = string;
     }
+    public JNumber getAsNumber(){
+        throw new UnsupportedOperationException();
+    }
+
+    public JBoolean getAsBoolean(){
+        throw new UnsupportedOperationException();
+    }
+    //TODO make classes that extend this. perhaps rename this class JText.
 
     @Override
     public JString getAsString() {
@@ -42,4 +51,13 @@ public class JString extends JToken {
 
         return Objects.hash(string);
     }
+
+    public enum StringType {
+    STRING,
+    NUMBER,
+    TRUE,
+    FALSE,
+    NULL
+    }
 }
+

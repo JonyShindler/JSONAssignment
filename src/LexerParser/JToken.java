@@ -18,10 +18,6 @@ public abstract class JToken {
         throw new UnsupportedOperationException();
     }
 
-    public JNumber getAsNumber(){
-        throw new UnsupportedOperationException();
-    }
-
     public String convertToString(){
         throw new UnsupportedOperationException();
     }

@@ -6,7 +6,6 @@ public enum Type {
 	COMMA,
 	COLON,
 	STRING, 
-	NUMBER,
 	SPACE,
 	OPEN_ARRAY,
 	CLOSE_ARRAY,
