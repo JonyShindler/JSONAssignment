@@ -27,7 +27,7 @@ public class Parser2 {
 	private JToken parseArray(PushbackLexer lex) throws IOException {
 		JArray array = new JArray();
 		boolean lastWasComma = true; //The first value in the array can be fine.
-
+	//TODO we should capture what the last character was regardless?
 		while (true) {
 			JsonSymbol s = lex.next();
 			if (s.type == Type.STRING) {
@@ -110,7 +110,7 @@ public class Parser2 {
 				if (s.type != Type.STRING) {
 					throw new IOException("Each key must be a string after a comma in an object");
 				}
-				object.addKey(s.value);
+				object.addKey(new JString(s.value));
 
 			} else if (lastType == Type.COLON) {
 				lastType = Type.COLON;

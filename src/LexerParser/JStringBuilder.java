@@ -1,11 +1,10 @@
 package LexerParser;
 
-public class JStringBuilder
-    //This class decides which type of JString to make.
-    //This info is useful
+import java.io.IOException;
 
+public class JStringBuilder
 {
-    public static JString createJString(String string){
+    public static JText createJString(String string) throws IOException {
 
         if (string.matches("-?\\d+(\\.\\d+)?")){
             return new JNumber(string);
@@ -16,13 +15,17 @@ public class JStringBuilder
         } else if (string.equals("false")) {
             return new JBoolean("false");
 
-        } else if (string.equals("false")) {
+        } else if (string.equals("null")) {
             return new JNull("null");
 
+        } else if (beginsAndEndsWithQuoteMarks(string)){
+            return new JString(string);
         } else {
-            return new JString(string); //TODO make this check for quotes.
+            throw new IOException("Not a valid JSON string");
         }
     }
 
-
+    private static boolean beginsAndEndsWithQuoteMarks(String string) {
+        return string.charAt(0) == '"' && string.charAt(string.length() - 1) == '"';
+    }
 }

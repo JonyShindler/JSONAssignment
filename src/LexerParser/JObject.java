@@ -4,19 +4,19 @@ import java.util.*;
 
 public class JObject extends JToken {
 
-    private List<String> keys = new ArrayList<>();
+    private List<JString> keys = new ArrayList<>();
     private List<JToken> values = new ArrayList<>();
-    private Map<String, JToken> map = new HashMap<>();
+    private Map<JString, JToken> map = new HashMap<>();
 
     public void addValue(JToken jToken) {
         values.add(jToken);
     }
 
-    public void addKey(String key) {
+    public void addKey(JString key) {
         keys.add(key);
     }
 
-    public JObject(Map<String, JToken> map) {
+    public JObject(Map<JString, JToken> map) {
         //TODO the map doesnt tostring in bloody order! not the end of the world thoguh
         this.map = map;
         this.keys = new ArrayList<>(map.keySet());
@@ -27,10 +27,12 @@ public class JObject extends JToken {
     }
 
     public JToken get(String key){
-        return map.get(key);
+        return map.get(new JString(key));
     }
 
-    public Map<String, JToken> getMap(){
+    //TODO add iterable method on this
+
+    public Map<JString, JToken> getMap(){
         return map;
     }
 
@@ -48,7 +50,7 @@ public class JObject extends JToken {
             if (i !=0) {
                 stringBuffer.append(',');
             }
-            stringBuffer.append("\"" + keys.get(i) + "\"");
+            stringBuffer.append(keys.get(i));
             if (values.size() > i) {
                 stringBuffer.append(":" + values.get(i));
             }
@@ -58,30 +60,8 @@ public class JObject extends JToken {
         }
     }
 
-
-//    @Override
-//    public String toString() {
-//        StringBuffer stringBuffer = new StringBuffer();
-//        stringBuffer.append('{');
-//        int i=1;
-//        //TODO the map isnt in fucking order!
-//        for (Map.Entry entry: map.entrySet()) {
-//            if (map.entrySet().size() != 1 && i !=1) {
-//                stringBuffer.append(',');
-//            }
-//            stringBuffer.append(entry.getKey() + ":" + entry.getValue());
-//            i++;
-//        }
-//        stringBuffer.append('}');
-//        return stringBuffer.toString();
-//    }
-
-
-
-
     public JObject buildObject() {
-        //TODO zip the map together and return the object.
-        //TODO maybe check we have the correct number of keys and values?? maybe its implicit from earlier.
+        //TODO check we have the correct number of keys and values?? maybe its implicit from earlier.
 
         for (int i=0; i<keys.size();i++) {
 

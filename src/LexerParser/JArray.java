@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class JArray extends JToken {
 
+    //TODO add iterable method on this
+
     private List<JToken> tokens;
 
     public JArray addToList(JToken jtoken) {

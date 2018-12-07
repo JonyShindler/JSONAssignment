@@ -1,10 +1,10 @@
 package LexerParser;
 
-public class JBoolean extends JString
+public class JBoolean extends JText
 {
     public JBoolean(String string)
     {
-        super(string);
+        this.string = string;
     }
 
     @Override
@@ -13,8 +13,4 @@ public class JBoolean extends JString
         return this;
     }
 
-    @Override
-    public String toString() {
-        return string;
-    }
 }

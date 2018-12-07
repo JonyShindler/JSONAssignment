@@ -53,9 +53,9 @@ private FileWriter fileWriter;
                 //TODO then wrap the unparsing bit?
                 //TODO this bit throws the exception.
                 JObject individualTask = new Parser2().parse(task).getAsObject();
-                String taskInstruction = individualTask.get("instruction").getAsString().getString();
+                String taskInstruction = individualTask.get("instruction").getAsText().getString();
                 List<JToken> parameters = individualTask.get("parameters").getAsArray().getTokens();
-                String postUrl = individualTask.get("response URL").getAsString().getString();
+                String postUrl = individualTask.get("response URL").getAsText().getString();
 
                 String answerToPost = new OperationClass().doOperation(taskInstruction, parameters);
                 sendTaskResponse(postUrl, answerToPost);
@@ -82,7 +82,7 @@ private FileWriter fileWriter;
     }
 
     private String retrieveIndividualTaskDetails(JToken element) throws IOException {
-        String taskURL = element.getAsString().getString();
+        String taskURL = element.getAsText().getString();
         String task = new GetRequester().sendGetRequest(taskURL);
         fileWriter.write(task + "\n");
         return task;

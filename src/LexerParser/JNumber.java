@@ -2,11 +2,12 @@ package LexerParser;
 
 import java.util.Objects;
 
-public class JNumber extends JString {
+public class JNumber extends JText {
 
     public JNumber(String string)
     {
-        super(string);
+
+        this.string = string;
     }
 
     @Override
@@ -16,11 +17,6 @@ public class JNumber extends JString {
 
     public Integer getInteger(){
         return Integer.parseInt(string);
-    }
-
-    @Override
-    public String toString() {
-        return string;
     }
 
     @Override

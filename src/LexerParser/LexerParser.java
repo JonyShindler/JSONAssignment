@@ -44,13 +44,15 @@ public class LexerParser {
 
 				// Strings
 				else if ('"' == c) {
+					StringBuffer value = new StringBuffer();
+					value.append((char)c);
 					c = reader.read();
 					if (Character.isLetterOrDigit(c) || c == '/') {
-						StringBuffer value = new StringBuffer();
 						while (Character.isLetterOrDigit(c) || c == '/' || c == ' ') { // collect extra digits
 							value.append((char)c);
 							c = reader.read();
 							if ('"' == c) {
+								value.append((char)c);
 								break;
 							}
 						}

@@ -15,68 +15,68 @@ public class Parser2Test {
     @Test
     public void testObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\"}");
-        Map<String, JToken> expectedMap = new ExpectedMapBuilder().addNode("a", new JString("b")).buildMap();
+        Map<JString, JToken> expectedMap = new ExpectedMapBuilder().addNode(new JString("a"), new JString("b")).buildMap();
         assertEquals(expectedMap, jToken.getAsObject().getMap());
     }
 
     @Test
     public void testObjectWithCommas () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\",\"c\":\"d\",\"e\":\"f\"}");
-        Map<String, JToken> expectedMap =
+        Map<JString, JToken> expectedMap =
                 new ExpectedMapBuilder()
-                        .addNode("a", new JString("b"))
-                        .addNode("c", new JString("d"))
-                        .addNode("e", new JString("f"))
+                        .addNode(new JString("a"), new JString("b"))
+                        .addNode(new JString("c"), new JString("d"))
+                        .addNode(new JString("e"), new JString("f"))
                         .buildMap();
-        Map<String, JToken> asMap = jToken.getAsObject().getMap();
+        Map<JString, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedMap, asMap);
-        assertEquals(asMap.get("c"), new JString("d"));
+        assertEquals(asMap.get(new JString("c")), new JString("d"));
     }
 
     @Test
     public void testArrayInObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"z\":\"x\",\"a\":[\"b\",\"c\",\"d\"],\"numbers\":2}");
-        JArray jArray = new JArray(createExpectedList("b", "c", "d"));
-        Map<String, JToken> expectedMap =
+        JArray jArray = new JArray(createExpectedList("\"b\"", "\"c\"", "\"d\""));
+        Map<JString, JToken> expectedMap =
                 new ExpectedMapBuilder()
-                        .addNode("z", new JString("x"))
-                        .addNode("a", jArray)
-                        .addNode("numbers", new JNumber("2"))
+                        .addNode(new JString("z"), new JString("\"x\""))
+                        .addNode(new JString("a"), jArray)
+                        .addNode(new JString("numbers"), new JNumber("2"))
                         .buildMap();
-        Map<String, JToken> asMap = jToken.getAsObject().getMap();
+        Map<JString, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedMap, asMap);
-        assertEquals(asMap.get("a"), jArray);
+        assertEquals(asMap.get(new JString("a")), jArray);
     }
 
     @Test
     public void testObjectInObject () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("{\"a\":{\"b\":\"c\"}}");
+        parseJsonAndAssertOutput("{\"a\":{\"b\":\"c\"}}");
     }
 
     @Test
     public void testObjectInArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",{\"c\":\"d\"}]}");
+        parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",{\"c\":\"d\"}]}");
     }
 
     @Test
     public void testArrayInArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",[\"c\",\"d\"]]}");
+        parseJsonAndAssertOutput("{\"array\":[\"a\",\"b\",[\"c\",\"d\"]]}");
     }
 
     @Test
     public void testTrueFalseNullInArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[true, false, null, 107, \"Bob\"]", "[true,false,null,107,\"Bob\"]");
+        parseJsonAndAssertOutput("[true, false, null, 107, \"Bob\"]", "[true,false,null,107,\"Bob\"]");
     }
 
     @Test
     public void testObjectInArrayAndArrayInObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"parent\":[\"a\",\"b\",{\"c\":\"d\",\"e\":[\"x\",\"y\",\"z\"]},[\"p\",\"q\"]],\"child\":\"me\"}");
-        JArray xyzArray = new JArray(createExpectedList("x", "y", "z"));
+        JArray xyzArray = new JArray(createExpectedList("\"x\"", "\"y\"", "\"z\""));
 
-        Map<String, JToken> cdeObjectMap =
+        Map<JString, JToken> cdeObjectMap =
                 new ExpectedMapBuilder()
-                        .addNode("c", new JString("d"))
-                        .addNode("e", xyzArray)
+                        .addNode(new JString("c"), new JString("\"d\""))
+                        .addNode(new JString("e"), xyzArray)
                         .buildMap();
 
         JArray pqArray = new JArray(createExpectedList("p", "q"));
@@ -84,14 +84,14 @@ public class Parser2Test {
         JArray abArray = new JArray(createExpectedList("a", "b")).addToList(cdeObject).addToList(pqArray);
 
 
-        Map<String, JToken> expectedParentMap =
+        Map<JString, JToken> expectedParentMap =
                 new ExpectedMapBuilder()
-                        .addNode("parent", abArray)
-                        .addNode("child", new JString("me"))
+                        .addNode(new JString("parent"), abArray)
+                        .addNode(new JString("child"), new JString("me"))
                         .buildMap();
-        Map<String, JToken> asMap = jToken.getAsObject().getMap();
+        Map<JString, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedParentMap, asMap);
-        assertEquals(asMap.get("parent"), abArray);
+        assertEquals(asMap.get(new JString("parent")), abArray);
         assertEquals(new JString("b"), abArray.getAsArray().get(1));
         assertEquals(cdeObject, abArray.getAsArray().get(2));
         assertEquals(xyzArray, abArray.getAsArray().get(2).getAsObject().get("e"));
@@ -99,19 +99,19 @@ public class Parser2Test {
 
     @Test
     public void testArrayWithQuote () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[\"a\"]");
+        parseJsonAndAssertOutput("[\"a\"]");
     }
 
     @Test
     public void testArrayWithQuotes () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[\"a\",\"b\"]");
+        parseJsonAndAssertOutput("[\"a\",\"b\"]");
     }
 
     @Test
     public void testActualTask () throws IOException {
         String inputJSON = "{\"instruction\":\"add\",\"parameters\":[3979, 1990],\"response URL\":\"/answer/3070\"}";
         String expectedToString = "{\"instruction\":\"add\",\"parameters\":[3979,1990],\"response URL\":\"/answer/3070\"}";
-        JToken jToken = parseJsonAndAssertOutput(inputJSON, expectedToString);
+        parseJsonAndAssertOutput(inputJSON, expectedToString);
     }
 
 
@@ -142,14 +142,14 @@ public class Parser2Test {
     }
 
     class ExpectedMapBuilder {
-        Map<String, JToken> expectedMap = new HashMap<>();
+        Map<JString, JToken> expectedMap = new HashMap<>();
 
-        ExpectedMapBuilder addNode(String key, JToken value){
+        ExpectedMapBuilder addNode(JString key, JToken value){
             expectedMap.put(key,value);
             return this; //for chaining.
         }
 
-        Map<String, JToken> buildMap(){
+        Map<JString, JToken> buildMap(){
             return expectedMap;
         }
 

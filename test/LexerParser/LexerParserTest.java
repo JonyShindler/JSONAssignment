@@ -19,7 +19,7 @@ public class LexerParserTest {
 	@Test
 	public void testWord() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("\"hello\""));
-		assertNextSymbol(lex, Type.STRING, "hello");
+		assertNextSymbol(lex, Type.STRING, "\"hello\"");
 		assertNull(lex.next());
 	}
 
@@ -30,6 +30,27 @@ public class LexerParserTest {
 		assertNextSymbol(lex, Type.STRING, "true");
 		assertNextSymbol(lex, Type.COMMA);
 		assertNextSymbol(lex, Type.STRING, "false");
+		assertNextSymbol(lex, Type.CLOSE_ARRAY);
+		assertNull(lex.next());
+	}
+
+	@Test
+	public void testAllStringsInArray() throws IOException {
+		LexerParser lex = new LexerParser(new StringReader("[true, false, null, 107, \"Bob\"]"));
+		assertNextSymbol(lex, Type.OPEN_ARRAY);
+		assertNextSymbol(lex, Type.STRING, "true");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.SPACE);
+		assertNextSymbol(lex, Type.STRING, "false");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.SPACE);
+		assertNextSymbol(lex, Type.STRING, "null");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.SPACE);
+		assertNextSymbol(lex, Type.STRING, "107");
+		assertNextSymbol(lex, Type.COMMA);
+		assertNextSymbol(lex, Type.SPACE);
+		assertNextSymbol(lex, Type.STRING, "\"Bob\"");
 		assertNextSymbol(lex, Type.CLOSE_ARRAY);
 		assertNull(lex.next());
 	}
@@ -57,7 +78,7 @@ public class LexerParserTest {
 	public void testCombination() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("{\"ugh\"}"));
 		assertNextSymbol (lex, Type.OPEN_OBJECT);
-		assertNextSymbol (lex, Type.STRING, "ugh");
+		assertNextSymbol (lex, Type.STRING, "\"ugh\"");
 		assertNextSymbol (lex, Type.CLOSE_OBJECT);
 		assertNull(lex.next());
 	}
@@ -72,14 +93,14 @@ public class LexerParserTest {
 	@Test
 	public void testQuotes() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("\"a\""));
-		assertNextSymbol(lex, Type.STRING, "a");
+		assertNextSymbol(lex, Type.STRING, "\"a\"");
 		assertNull(lex.next());
 	}
 
 	@Test
 	public void testQuotesWithForwardSlach() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("\"/a\""));
-		assertNextSymbol(lex, Type.STRING, "/a");
+		assertNextSymbol(lex, Type.STRING, "\"/a\"");
 		assertNull(lex.next());
 	}
 
@@ -93,7 +114,7 @@ public class LexerParserTest {
 	@Test
 	public void testStringWithSpace() throws IOException {
 		LexerParser lex = new LexerParser(new StringReader("\"hi bob\""));
-		assertNextSymbol(lex, Type.STRING, "hi bob");
+		assertNextSymbol(lex, Type.STRING, "\"hi bob\"");
 		assertNull(lex.next());
 	}
 

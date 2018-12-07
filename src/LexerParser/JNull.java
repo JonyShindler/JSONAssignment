@@ -1,8 +1,8 @@
 package LexerParser;
 
-public class JNull extends JString {
+public class JNull extends JText {
     public JNull(String string) {
-        super(string);
+        this.string = string;
     }
 
     @Override

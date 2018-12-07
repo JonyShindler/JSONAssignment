@@ -9,6 +9,8 @@ public class JsonSymbol {
 		this.value = value;
 			}
 
+			//TODO add the character start position in here.
+
 	@Override
 	public String toString() {
 		return "JsonSymbol{" +

@@ -1,10 +1,5 @@
 package LexerParser;
 
-import jdk.nashorn.internal.scripts.JO;
-
-import java.util.List;
-import java.util.Map;
-
 public abstract class JToken {
     public JArray getAsArray(){
         throw new UnsupportedOperationException();
@@ -14,7 +9,7 @@ public abstract class JToken {
         throw new UnsupportedOperationException();
     }
 
-    public JString getAsString(){
+    public JText getAsText(){
         throw new UnsupportedOperationException();
     }
 
