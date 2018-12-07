@@ -17,7 +17,10 @@ public class JString extends JToken {
     public JBoolean getAsBoolean(){
         throw new UnsupportedOperationException();
     }
-    //TODO make classes that extend this. perhaps rename this class JText.
+
+    public JNull getAsNull(){
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public JString getAsString() {

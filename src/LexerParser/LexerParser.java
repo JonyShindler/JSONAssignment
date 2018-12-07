@@ -28,7 +28,6 @@ public class LexerParser {
 					}
 					if (charactersRemain(c)) reader.unread(c);
 					return new JsonSymbol(Type.SPACE, " ");
-					//TODO i dont care about spaces for now.
 				}
 
 				// Numbers
@@ -43,7 +42,6 @@ public class LexerParser {
 				}
 
 
-				//TODO this needs to be able to read null, true, false etc. so maybe have another one that checks for these?
 				// Strings
 				else if ('"' == c) {
 					c = reader.read();

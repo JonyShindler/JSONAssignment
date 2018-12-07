@@ -64,8 +64,8 @@ public class Parser2Test {
     }
 
     @Test
-    public void testTrueInArray () throws IOException {
-        JToken jToken = parseJsonAndAssertOutput("[true, false]", "[true,false]");
+    public void testTrueFalseNullInArray () throws IOException {
+        JToken jToken = parseJsonAndAssertOutput("[true, false, null, 107, \"Bob\"]", "[true,false,null,107,\"Bob\"]");
     }
 
     @Test

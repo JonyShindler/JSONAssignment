@@ -93,10 +93,10 @@ private FileWriter fileWriter;
         String filePathWorkPc = "D:/Users/jshindle/Homework/JSONParser/outputFile.txt";
         String filePathDesktop = "C:/Users/Jony/git/Tutoring/FinalProject/JSONAssignment/outputFile.txt";
         String filePathLaptop = "/home/jony/git/JSONAssignment/outputFile.txt";
-        PrintWriter pw = new PrintWriter(filePathWorkPc);
+        PrintWriter pw = new PrintWriter(filePathDesktop);
         pw.close();
 
-        return new FileWriter(filePathWorkPc);
+        return new FileWriter(filePathDesktop);
     }
 
 }
