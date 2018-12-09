@@ -1,5 +1,7 @@
 package LexerParser;
 
+import com.sun.deploy.security.ValidationState;
+
 import java.io.IOException;
 import java.io.StringReader;
 
@@ -50,6 +52,7 @@ public class Parser2 {
 		JArray array = new JArray();
 		Type lastType = Type.COMMA; //The first value in the array can be fine.
 
+        //TODO we do nothing if last type was close array etc...
 		while (true) {
 			JsonSymbol s = lex.next();
 			if (s.type == Type.STRING ) {
@@ -60,12 +63,12 @@ public class Parser2 {
 			} else if (s.type == Type.OPEN_OBJECT) {
 				if (lastType!=Type.COMMA) { throw new IOException(generateExceptionMessage(EXPECTED_COMMA, s.startChar));}
 				array.addToList(parseObject(lex));
-				lastType = Type.OPEN_OBJECT;
+				lastType = Type.CLOSE_OBJECT;
 
 			} else if (s.type == Type.OPEN_ARRAY) {
 				if (lastType!=Type.COMMA) { throw new IOException(generateExceptionMessage(EXPECTED_COMMA, s.startChar));}
 				array.addToList(parseArray(lex));
-				lastType = Type.OPEN_ARRAY;
+				lastType = Type.CLOSE_ARRAY;
 
 			} else if (s.type == Type.COMMA) {
 			    // Comma after comma
@@ -114,37 +117,28 @@ public class Parser2 {
 				}
 				object.addValue(parseArray(lex));
 
-			// this bit decides what to do if you just had a comma or a string.
 			} else if (s.type == Type.COMMA) {
 				lastType = Type.COMMA;
-				//Do nothing else
-				continue;
 
 			} else if (s.type == Type.COLON) {
 				lastType = Type.COLON;
-				//Do nothing else
-				continue;
 
-				//Otherwise we must be a string.
-			} else if (lastType == Type.COMMA) {
-				lastType = Type.COMMA;
-				//add the key.
-				if (s.type != Type.STRING) {
-					throw new IOException("Each key must be a string after a comma in an object");
-				}
-				object.addKey(new JString(s.value));
+			} else if (s.type == Type.STRING) {
+                if (lastType == Type.COMMA) {
+                    lastType = Type.COMMA;
+                    //add the key.
+                    object.addKey(new JString(s.value));
 
-			} else if (lastType == Type.COLON) {
-				lastType = Type.COLON;
-				if (s.type == Type.STRING) {
-					object.addValue(JStringBuilder.createJString(s.value));
-				}
+                } else if (lastType == Type.COLON) {
+                    lastType = Type.COLON;
+                    object.addValue(JStringBuilder.createJString(s.value));
+
+                }
 			} else if (s.type == Type.SPACE) {
 				//do nothing
-			}
-
-			//TODO throw exception here cos we should have existed the object here and
-			// TODO we have to have been one of those things above
+			} else {
+                throw new IOException(generateExceptionMessage(UNEXPECTED_CHARACTER, s.value, s.startChar));
+            }
 		}
 	}
 

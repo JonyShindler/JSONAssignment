@@ -10,6 +10,5 @@ public enum Type {
 	OPEN_ARRAY,
 	CLOSE_ARRAY,
 	OTHER
-	
 }
 

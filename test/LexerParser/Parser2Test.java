@@ -115,6 +115,7 @@ public class Parser2Test {
         parseJsonAndAssertOutput(inputJSON, expectedToString);
     }
 
+    //TODO add tests for the object verification.
 
     @Test
     public void testArrayWhichStartsWithComma(){
