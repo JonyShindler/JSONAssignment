@@ -5,9 +5,9 @@ import java.io.StringReader;
 
 public class Parser2 {
 
-	public static final String EXPECTED_COMMA = "Expected comma at positon x";
-	public static final String ILLEGAL_COMMA = "Illegal comma at position x";
-	public static final String UNEXPECTED_CHARACTER = "Unexpected character x";
+	public static final String EXPECTED_COMMA = "Expected comma ";
+	public static final String ILLEGAL_COMMA = "Illegal comma ";
+	public static final String UNEXPECTED_CHARACTER = "Unexpected character: ";
 
 	public JToken parse(String string) throws IOException {
 		PushbackLexer lex = new PushbackLexer(new LexerParser(new StringReader(string)));
@@ -28,6 +28,24 @@ public class Parser2 {
 		return jToken;
 	}
 
+    private String generateExceptionMessage(String exceptionMessage, int startChar) {
+        return generateExceptionMessage(exceptionMessage, null, startChar);
+    }
+
+	private String generateExceptionMessage(String exceptionMessage, String unexpectedCharacter, int startChar) {
+	    StringBuilder builder = new StringBuilder();
+	    builder.append(exceptionMessage);
+
+	    if (unexpectedCharacter !=null) {
+	        builder.append(unexpectedCharacter);
+	        builder.append(" ");
+        }
+
+        builder.append("at position ");
+        builder.append(startChar);
+        return builder.toString();
+    }
+
 	private JToken parseArray(PushbackLexer lex) throws IOException {
 		JArray array = new JArray();
 		Type lastType = Type.COMMA; //The first value in the array can be fine.
@@ -35,27 +53,29 @@ public class Parser2 {
 		while (true) {
 			JsonSymbol s = lex.next();
 			if (s.type == Type.STRING ) {
-				if (lastType!=Type.COMMA) { throw new IOException(EXPECTED_COMMA);}
+				if (lastType!=Type.COMMA) { throw new IOException(generateExceptionMessage(EXPECTED_COMMA, s.startChar));}
 				array.addToList(JStringBuilder.createJString(s.value));
 				lastType = Type.STRING;
 
 			} else if (s.type == Type.OPEN_OBJECT) {
-				if (lastType!=Type.COMMA) { throw new IOException(EXPECTED_COMMA);}
+				if (lastType!=Type.COMMA) { throw new IOException(generateExceptionMessage(EXPECTED_COMMA, s.startChar));}
 				array.addToList(parseObject(lex));
 				lastType = Type.OPEN_OBJECT;
 
 			} else if (s.type == Type.OPEN_ARRAY) {
-				if (lastType!=Type.COMMA) { throw new IOException(EXPECTED_COMMA);}
+				if (lastType!=Type.COMMA) { throw new IOException(generateExceptionMessage(EXPECTED_COMMA, s.startChar));}
 				array.addToList(parseArray(lex));
 				lastType = Type.OPEN_ARRAY;
 
 			} else if (s.type == Type.COMMA) {
-				if (lastType==Type.COMMA) { throw new IOException(ILLEGAL_COMMA);}
+			    // Comma after comma
+				if (lastType==Type.COMMA) { throw new IOException(generateExceptionMessage(ILLEGAL_COMMA, s.startChar));}
 				lastType = Type.COMMA;
 
 			} else if (s.type == Type.CLOSE_ARRAY) {
+			    // Comma before closing bracket
 				if (lastType == Type.COMMA) {
-					throw new IOException(ILLEGAL_COMMA);
+					throw new IOException(generateExceptionMessage(ILLEGAL_COMMA, s.startChar-1));
 				}
 				return array;
 
@@ -63,7 +83,8 @@ public class Parser2 {
 				//do nothing
 
 			} else {
-				throw new IOException(UNEXPECTED_CHARACTER);
+			    // Anything which isnt a string, close array, open object, open array or comma is not valid in an array.
+				throw new IOException(generateExceptionMessage(UNEXPECTED_CHARACTER, s.value, s.startChar));
 			}
 		}
 	}
@@ -72,7 +93,6 @@ public class Parser2 {
 		JObject object = new JObject();
 		Type lastType = Type.COMMA; //The first thing is a key.
 
-		// TODO use the text method below to handle whitespace etc.
 		while (true) {
 			JsonSymbol s = lex.next();
 			if (s.type == Type.CLOSE_OBJECT) {
@@ -126,30 +146,6 @@ public class Parser2 {
 			//TODO throw exception here cos we should have existed the object here and
 			// TODO we have to have been one of those things above
 		}
-	}
-
-
-	// This method reads the next symbols and returns a text based document.
-	//TODO use this method to create the JStrings for us?
-
-
-	// Perhaps we should call this when we see any string come up? it handles spaces,
-	// we kinda want to ignore spaces I think.. not sure.
-	private String text(PushbackLexer lex) throws IOException {
-		StringBuilder ret = new StringBuilder();
-		sym: for (JsonSymbol symbol = lex.next(); symbol != null; symbol = lex.next()) {
-			switch(symbol.type) {
-			case STRING: case SPACE: case OTHER: case COMMA:
-					ret.append(symbol.value);
-				break;
-			default:
-				 break sym; // to stop loop
-			//TODO need to add the rest from Type
-			//TODO See page 22 and implement
-			}
-		}
-		return ret.toString();
-
 	}
 
 }

@@ -122,7 +122,7 @@ public class Parser2Test {
          new Parser2().parse("[,true,false]");
          fail();
          } catch (IOException e){
-            assertEquals(Parser2.ILLEGAL_COMMA, e.getMessage());
+            assertEquals(illegalComma(1), e.getMessage());
         }
     }
 
@@ -132,7 +132,7 @@ public class Parser2Test {
             new Parser2().parse("[true,,false]");
             fail();
         } catch (IOException e){
-            assertEquals(Parser2.ILLEGAL_COMMA, e.getMessage());
+            assertEquals(illegalComma(6), e.getMessage());
         }
     }
 
@@ -142,7 +142,7 @@ public class Parser2Test {
             new Parser2().parse("[[true][false]]");
             fail();
         } catch (IOException e){
-            assertEquals(Parser2.EXPECTED_COMMA, e.getMessage());
+            assertEquals(expectedComma(7), e.getMessage());
         }
     }
 
@@ -152,7 +152,17 @@ public class Parser2Test {
             new Parser2().parse("[true,false,]");
             fail();
         } catch (IOException e){
-            assertEquals(Parser2.ILLEGAL_COMMA, e.getMessage());
+            assertEquals(illegalComma(11), e.getMessage());
+        }
+    }
+
+    @Test
+    public void testArrayWithNoCommaBetweenStrings() {
+        try {
+            new Parser2().parse("[\"abc\"\"bob\"]");
+            fail();
+        } catch (IOException e){
+            assertEquals(expectedComma(6), e.getMessage());
         }
     }
 
@@ -162,26 +172,27 @@ public class Parser2Test {
             new Parser2().parse("[{\"a\":true}{\"c\":false}]");
             fail();
         } catch (IOException e){
-            assertEquals(Parser2.EXPECTED_COMMA, e.getMessage());
+            assertEquals(expectedComma(11), e.getMessage());
         }
     }
+
     @Test
     public void testArrayWithColon() {
         try {
             new Parser2().parse("[true,false:null]");
             fail();
         } catch (IOException e){
-            assertEquals(Parser2.UNEXPECTED_CHARACTER, e.getMessage());
+            assertEquals(unexpectedCharacter(11, ":"), e.getMessage());
         }
     }
 
     @Test
     public void testArrayWithRandomClosedObjectBracket() {
         try {
-            new Parser2().parse("[true,false,}]");
+            new Parser2().parse("[true,false}]");
             fail();
         } catch (IOException e){
-            assertEquals(Parser2.UNEXPECTED_CHARACTER, e.getMessage());
+            assertEquals(unexpectedCharacter(11, "}"), e.getMessage());
         }
     }
 
@@ -210,6 +221,18 @@ public class Parser2Test {
         return expectedList;
     }
 
+    private String expectedComma(int startChar){
+        return Parser2.EXPECTED_COMMA + "at position " + startChar;
+    }
+
+    private String illegalComma(int startChar){
+        return Parser2.ILLEGAL_COMMA + "at position " + startChar;
+    }
+
+    private String unexpectedCharacter(int startChar, String unexpectedString){
+        return Parser2.UNEXPECTED_CHARACTER + unexpectedString + " at position " + startChar;
+    }
+
     class ExpectedMapBuilder {
         Map<JString, JToken> expectedMap = new HashMap<>();
 
@@ -223,12 +246,4 @@ public class Parser2Test {
         }
 
     }
-
-
-    //TODO need a way to get the array bits out of this guy.
-    // Then we can swap out GSON with our own parser.
-    //TODO work on getting all the validation working.
-    //TODO see if we can get it to tell us the position in the JSON string and what it expects where.
-
-
 }
