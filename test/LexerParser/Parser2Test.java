@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class Parser2Test {
 
@@ -115,6 +116,75 @@ public class Parser2Test {
     }
 
 
+    @Test
+    public void testArrayWhichStartsWithComma(){
+        try {
+         new Parser2().parse("[,true,false]");
+         fail();
+         } catch (IOException e){
+            assertEquals(Parser2.ILLEGAL_COMMA, e.getMessage());
+        }
+    }
+
+    @Test
+    public void testArrayWithTwoCommas() {
+        try {
+            new Parser2().parse("[true,,false]");
+            fail();
+        } catch (IOException e){
+            assertEquals(Parser2.ILLEGAL_COMMA, e.getMessage());
+        }
+    }
+
+    @Test
+    public void testDoubleArrayWithNoCommas() {
+        try {
+            new Parser2().parse("[[true][false]]");
+            fail();
+        } catch (IOException e){
+            assertEquals(Parser2.EXPECTED_COMMA, e.getMessage());
+        }
+    }
+
+    @Test
+    public void testArrayWithCommaAtEnd() {
+        try {
+            new Parser2().parse("[true,false,]");
+            fail();
+        } catch (IOException e){
+            assertEquals(Parser2.ILLEGAL_COMMA, e.getMessage());
+        }
+    }
+
+    @Test
+    public void testArrayWithObjectsWithNoCommas() {
+        try {
+            new Parser2().parse("[{\"a\":true}{\"c\":false}]");
+            fail();
+        } catch (IOException e){
+            assertEquals(Parser2.EXPECTED_COMMA, e.getMessage());
+        }
+    }
+    @Test
+    public void testArrayWithColon() {
+        try {
+            new Parser2().parse("[true,false:null]");
+            fail();
+        } catch (IOException e){
+            assertEquals(Parser2.UNEXPECTED_CHARACTER, e.getMessage());
+        }
+    }
+
+    @Test
+    public void testArrayWithRandomClosedObjectBracket() {
+        try {
+            new Parser2().parse("[true,false,}]");
+            fail();
+        } catch (IOException e){
+            assertEquals(Parser2.UNEXPECTED_CHARACTER, e.getMessage());
+        }
+    }
+
     private JToken parseJsonAndAssertOutput(String json) throws IOException {
         return getAndAssertJToken(json, json);
     }
@@ -127,7 +197,6 @@ public class Parser2Test {
     {
         Parser2 parser = new Parser2();
         JToken token = parser.parse(json);
-        System.out.println(token);
         assertEquals(expectedToString, token.toString());
         return token;
     }

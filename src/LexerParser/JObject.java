@@ -17,7 +17,6 @@ public class JObject extends JToken {
     }
 
     public JObject(Map<JString, JToken> map) {
-        //TODO the map doesnt tostring in bloody order! not the end of the world thoguh
         this.map = map;
         this.keys = new ArrayList<>(map.keySet());
         this.values = new ArrayList<>(map.values());

@@ -5,6 +5,10 @@ import java.io.StringReader;
 
 public class Parser2 {
 
+	public static final String EXPECTED_COMMA = "Expected comma at positon x";
+	public static final String ILLEGAL_COMMA = "Illegal comma at position x";
+	public static final String UNEXPECTED_CHARACTER = "Unexpected character x";
+
 	public JToken parse(String string) throws IOException {
 		PushbackLexer lex = new PushbackLexer(new LexerParser(new StringReader(string)));
 		JsonSymbol s = lex.next();
@@ -26,42 +30,40 @@ public class Parser2 {
 
 	private JToken parseArray(PushbackLexer lex) throws IOException {
 		JArray array = new JArray();
-		boolean lastWasComma = true; //The first value in the array can be fine.
-	//TODO we should capture what the last character was regardless?
+		Type lastType = Type.COMMA; //The first value in the array can be fine.
+
 		while (true) {
 			JsonSymbol s = lex.next();
-			if (s.type == Type.STRING) {
-				if (lastWasComma) {
-					array.addToList(JStringBuilder.createJString(s.value));
-					lastWasComma = false;
-				} else {
-					throw new IOException("Expected comma after value");
-				}
+			if (s.type == Type.STRING ) {
+				if (lastType!=Type.COMMA) { throw new IOException(EXPECTED_COMMA);}
+				array.addToList(JStringBuilder.createJString(s.value));
+				lastType = Type.STRING;
 
 			} else if (s.type == Type.OPEN_OBJECT) {
-				if (!lastWasComma) {
-					throw new IOException("Expected comma after value");
-				}
+				if (lastType!=Type.COMMA) { throw new IOException(EXPECTED_COMMA);}
 				array.addToList(parseObject(lex));
+				lastType = Type.OPEN_OBJECT;
 
 			} else if (s.type == Type.OPEN_ARRAY) {
-				if (!lastWasComma) {
-					throw new IOException("Expected comma after value");
-				}
+				if (lastType!=Type.COMMA) { throw new IOException(EXPECTED_COMMA);}
 				array.addToList(parseArray(lex));
+				lastType = Type.OPEN_ARRAY;
 
 			} else if (s.type == Type.COMMA) {
-				//do nothing, but make sure to say that the last thing was a comma.
-				lastWasComma = true;
+				if (lastType==Type.COMMA) { throw new IOException(ILLEGAL_COMMA);}
+				lastType = Type.COMMA;
 
 			} else if (s.type == Type.CLOSE_ARRAY) {
+				if (lastType == Type.COMMA) {
+					throw new IOException(ILLEGAL_COMMA);
+				}
 				return array;
 
 			} else if (s.type == Type.SPACE) {
 				//do nothing
 
 			} else {
-				throw new IOException("Expected something...");
+				throw new IOException(UNEXPECTED_CHARACTER);
 			}
 		}
 	}
