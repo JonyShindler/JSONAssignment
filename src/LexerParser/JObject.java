@@ -1,5 +1,6 @@
 package LexerParser;
 
+import java.io.IOException;
 import java.util.*;
 
 public class JObject extends JToken {
@@ -25,7 +26,7 @@ public class JObject extends JToken {
     public JObject() {
     }
 
-    public JToken get(String key){
+    public JToken get(String key) throws IOException {
         return map.get(new JString(key));
     }
 

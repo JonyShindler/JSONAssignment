@@ -21,11 +21,11 @@ public class JStringBuilder
         } else if (beginsAndEndsWithQuoteMarks(string)){
             return new JString(string);
         } else {
-            throw new IOException("Not a valid JSON string");
+            throw new IOException("Not valid JSON text");
         }
     }
 
-    private static boolean beginsAndEndsWithQuoteMarks(String string) {
+    static boolean beginsAndEndsWithQuoteMarks(String string) {
         return string.charAt(0) == '"' && string.charAt(string.length() - 1) == '"';
     }
 }

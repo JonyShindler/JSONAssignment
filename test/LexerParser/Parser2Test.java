@@ -16,7 +16,7 @@ public class Parser2Test {
     @Test
     public void testObject () throws IOException {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\"}");
-        Map<JString, JToken> expectedMap = new ExpectedMapBuilder().addNode(new JString("a"), new JString("b")).buildMap();
+        Map<JString, JToken> expectedMap = new ExpectedMapBuilder().addNode(createJString("a"), createJString("b")).buildMap();
         assertEquals(expectedMap, jToken.getAsObject().getMap());
     }
 
@@ -25,13 +25,13 @@ public class Parser2Test {
         JToken jToken = parseJsonAndAssertOutput("{\"a\":\"b\",\"c\":\"d\",\"e\":\"f\"}");
         Map<JString, JToken> expectedMap =
                 new ExpectedMapBuilder()
-                        .addNode(new JString("a"), new JString("b"))
-                        .addNode(new JString("c"), new JString("d"))
-                        .addNode(new JString("e"), new JString("f"))
+                        .addNode(createJString("a"), createJString("b"))
+                        .addNode(createJString("c"), createJString("d"))
+                        .addNode(createJString("e"), createJString("f"))
                         .buildMap();
         Map<JString, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedMap, asMap);
-        assertEquals(asMap.get(new JString("c")), new JString("d"));
+        assertEquals(asMap.get(createJString("c")), createJString("d"));
     }
 
     @Test
@@ -40,13 +40,13 @@ public class Parser2Test {
         JArray jArray = new JArray(createExpectedList("\"b\"", "\"c\"", "\"d\""));
         Map<JString, JToken> expectedMap =
                 new ExpectedMapBuilder()
-                        .addNode(new JString("z"), new JString("\"x\""))
-                        .addNode(new JString("a"), jArray)
-                        .addNode(new JString("numbers"), new JNumber("2"))
+                        .addNode(createJString("z"), createJString("\"x\""))
+                        .addNode(createJString("a"), jArray)
+                        .addNode(createJString("numbers"), new JNumber("2"))
                         .buildMap();
         Map<JString, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedMap, asMap);
-        assertEquals(asMap.get(new JString("a")), jArray);
+        assertEquals(asMap.get(createJString("a")), jArray);
     }
 
     @Test
@@ -76,8 +76,8 @@ public class Parser2Test {
 
         Map<JString, JToken> cdeObjectMap =
                 new ExpectedMapBuilder()
-                        .addNode(new JString("c"), new JString("\"d\""))
-                        .addNode(new JString("e"), xyzArray)
+                        .addNode(createJString("c"), createJString("d"))
+                        .addNode(createJString("e"), xyzArray)
                         .buildMap();
 
         JArray pqArray = new JArray(createExpectedList("p", "q"));
@@ -87,13 +87,13 @@ public class Parser2Test {
 
         Map<JString, JToken> expectedParentMap =
                 new ExpectedMapBuilder()
-                        .addNode(new JString("parent"), abArray)
-                        .addNode(new JString("child"), new JString("me"))
+                        .addNode(createJString("parent"), abArray)
+                        .addNode(createJString("child"), createJString("me"))
                         .buildMap();
         Map<JString, JToken> asMap = jToken.getAsObject().getMap();
         assertEquals(expectedParentMap, asMap);
-        assertEquals(asMap.get(new JString("parent")), abArray);
-        assertEquals(new JString("b"), abArray.getAsArray().get(1));
+        assertEquals(asMap.get(createJString("parent")), abArray);
+        assertEquals(createJString("b"), abArray.getAsArray().get(1));
         assertEquals(cdeObject, abArray.getAsArray().get(2));
         assertEquals(xyzArray, abArray.getAsArray().get(2).getAsObject().get("e"));
     }
@@ -213,11 +213,11 @@ public class Parser2Test {
         return token;
     }
 
-    private List<JToken> createExpectedList(String... strings) {
+    private List<JToken> createExpectedList(String... strings) throws IOException {
         List<JToken> expectedList = new ArrayList<>();
 
         for (String string : strings) {
-            expectedList.add(new JString(string));
+            expectedList.add(createJString(string));
         }
         return expectedList;
     }
@@ -232,6 +232,10 @@ public class Parser2Test {
 
     private String unexpectedCharacter(int startChar, String unexpectedString){
         return Parser2.UNEXPECTED_CHARACTER + unexpectedString + " at position " + startChar;
+    }
+
+    private JString createJString(String string) throws IOException {
+        return new JString(string);
     }
 
     class ExpectedMapBuilder {

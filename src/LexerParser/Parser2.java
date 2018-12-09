@@ -126,8 +126,12 @@ public class Parser2 {
 			} else if (s.type == Type.STRING) {
                 if (lastType == Type.COMMA) {
                     lastType = Type.COMMA;
-                    //add the key.
-                    object.addKey(new JString(s.value));
+                    //add the key, which must be a string.
+                    if (JStringBuilder.beginsAndEndsWithQuoteMarks(s.value)) {
+                        object.addKey(new JString(s.value));
+                    } else {
+                        throw new IOException("Invalid key: " + s.value + " - A key can only be a string - it must start and end with double quotes");
+                    }
 
                 } else if (lastType == Type.COLON) {
                     lastType = Type.COLON;
